@@ -1,0 +1,23 @@
+
+<table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">nom</th>
+        <th scope="col">Prenom </th>
+        <th scope="col">Date Naissance</th>
+        <th scope="col">option</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listetudiants">
+        <td>{{item.idEtudiant}}</td>
+        <td>{{item.nomE}}</td>
+        <td>{{item.prenomE}}</td>
+        <td>{{item.option}}</td>
+        <td>{{item.date_naissance}}</td>
+      </tr>
+    
+    </tbody>
+  </table>
+<button class="btn btn-primary"> ajouter </button>
