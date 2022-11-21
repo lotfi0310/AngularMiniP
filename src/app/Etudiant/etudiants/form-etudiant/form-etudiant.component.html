@@ -1,0 +1,36 @@
+<form>
+    <div class="form-group">
+        <div>
+            <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Nom Etudiant</label>
+            <input type="text" class="form-control form-control-sm" name="nomE" id="colFormLabelSm" placeholder="">
+        </div>
+        <div>
+            <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Prenom Etudiant</label>
+            <input type="text" class="form-control form-control-sm" name="penomE" id="colFormLabelSm" placeholder="">
+        </div>
+       
+        <div class="form-row align-items-center">
+            <div class="col-auto my-1">
+              <select class=" select-control mr-sm-2" id="inlineFormCustomSelect">
+                <option selected>Choose option</option>
+                <option value="1">GAMIX</option>
+                <option value="2">NIDS</option>
+                <option value="2">SE</option>
+                <option value="2">SIM</option>
+              </select>
+            </div>
+        </div>
+       
+        <div class="form-outline datepicker" data-mdb-format="dd, mmm, yyyy">
+          <input type="text" class="form-control" id="datepicker" placeholder="dd, mmm, yyyy" />
+          <label for="exampleDatepicker4" class="form-label">Select a date</label>
+        </div>
+
+      <script type="text/javascript">
+        $(function() {
+            $('.datepicker').datepicker();
+        });
+    </script>
+
+    </div>
+</form>

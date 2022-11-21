@@ -9,20 +9,20 @@
     }
 }
 </style>
-</head><body style="background:#e6e6e6;color:black;">
+</head><body>
 
 <div class="w3-sidebar w3-light-grey w3-card-4 w3-animate-left" style="width:200px" id="mySidebar">
   <div class="w3-bar w3-dark-grey">
-  <span class="w3-bar-item w3-padding-16">Content</span>
   <button onclick="w3_close()" class="w3-bar-item w3-button w3-right w3-padding-16" title="close Sidebar">×</button>
   </div>
   <div class="w3-bar-block">
   <a class="w3-bar-item w3-button w3-green" href="javascript:void(0)">Home</a>
 
   <div class="w3-dropdown-hover">
+    
     <a  routerLink="/etudiants" class="w3-button" href="javascript:void(0)">Etudiants <i class="fa fa-caret-down"></i></a>
     <div class="w3-dropdown-content w3-bar-block w3-card-4">
-      <a  class="w3-bar-item w3-button" href="javascript:void(0)">Link 1</a>
+      <a   routerLink="/etudiants/form" class="w3-bar-item w3-button" href="javascript:void(0)"> crée new Etudiant</a>
       <a class="w3-bar-item w3-button" href="javascript:void(0)">Link 2</a>
       <a class="w3-bar-item w3-button" href="javascript:void(0)">Link 3</a>
     </div>
@@ -72,18 +72,12 @@
       <a class="w3-bar-item w3-button" href="javascript:void(0)">Link 3</a>
     </div>
   </div>
-  <a class="w3-bar-item w3-button" href="javascript:void(0)">Support</a>
   </div>
 </div>
 
 <div id="main" style="margin-left:200px">
-
-<div class="w3-container w3-display-container">
-  <span title="open Sidebar" style="display:none" id="openNav" class="w3-button w3-transparent w3-display-topleft w3-xlarge" onclick="w3_open()">☰</span>
-  <h3 class="h3" style="position:fixed;top:36px;">
   <router-outlet></router-outlet>
-  </h3>
-</div>
+
 
 </div>
 
@@ -104,11 +98,3 @@ function w3_close() {
 
  </body></html>
 
-<div class="sidebar ">
-  <a type="button" routerLink="/etudiants" class="active">Etudiants</a>
-  <a type="button" routerLink="/contrats">contrats</a>
-  <a type="button" routerLink="/equipes">Equipes</a>
-  <a type="button" routerLink="/detailequipes">Detail Equipes</a>
-  <a type="button" routerLink="/departments">Departements</a>
-  <a type="button" routerLink="/universities">Université</a>
-</div>
