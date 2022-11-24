@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { etudiants } from 'src/app/core/model/etudiants';
 import { EtudiantService } from 'src/app/core/services/etudiant.service';
 
@@ -9,7 +10,11 @@ import { EtudiantService } from 'src/app/core/services/etudiant.service';
 })
 export class ListEtudiantComponent implements OnInit {
   public listetudiants :etudiants[];
-  constructor(private etudiantService : EtudiantService) { }
+  public filredliste: etudiants[];
+  public list :etudiants[]; 
+  public nomE :String; 
+  etudiant:etudiants ; 
+  constructor(private etudiantService : EtudiantService,private route:Router) { }
 
   ngOnInit(): void {
     this.etudiantService.getEtudiantsListe().subscribe(
@@ -17,5 +22,16 @@ export class ListEtudiantComponent implements OnInit {
       this.listetudiants=data; 
     })
   }
+
+  getfiltred(){
+  this.etudiantService.getEtudiantFiltredbyname(this.nomE).subscribe(data2 =>{
+    this.filredliste=data2; 
+    this.route.navigate(['etudiants/']);
+    console.log(this.filredliste);
+    console.log(this.nomE);
+  })
+  }
+
+
 
 }

@@ -3,7 +3,8 @@ export class etudiants{
      nomE :String; 
      prenomE :String ; 
      option : String ; 
-     date_naissance : String ; 
+     date_naissance : Date ;
+     picture : String ;  
      
     
 }

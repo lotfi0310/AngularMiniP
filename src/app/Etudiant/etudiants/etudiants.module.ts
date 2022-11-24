@@ -5,16 +5,19 @@ import { EtudiantsComponent } from './etudiants.component';
 import { ListEtudiantComponent } from './list-etudiant/list-etudiant.component';
 import { NavEtudiantComponent } from './nav-etudiant/nav-etudiant.component';
 import { FormEtudiantComponent } from './form-etudiant/form-etudiant.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     EtudiantsComponent,
     ListEtudiantComponent,
     NavEtudiantComponent,
-    FormEtudiantComponent
+    FormEtudiantComponent,
+  
   ],
   imports: [
     CommonModule,
+    FormsModule,
     EtudiantsRoutingModule
   ]
 })

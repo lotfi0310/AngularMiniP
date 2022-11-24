@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { SidebarComponent } from './Shared/sidebar/sidebar.component';
 import { HttpClientModule } from '@angular/common/http';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,8 +14,12 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
+    
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
+
 export class AppModule { }
