@@ -13,7 +13,6 @@ export class ListEtudiantComponent implements OnInit {
   public filredliste: etudiants[];
   public list :etudiants[]; 
   public nomE :String; 
-  etudiant:etudiants ; 
   constructor(private etudiantService : EtudiantService,private route:Router) { }
 
   ngOnInit(): void {
@@ -32,6 +31,17 @@ export class ListEtudiantComponent implements OnInit {
   })
   }
 
+  DeleteEtudiant(item:etudiants){
+    let i = this.listetudiants.indexOf(item);
+    console.log(i);
+    console.log(item.idEtudiant);
+    this.etudiantService.deleteEtudiantByID(item.idEtudiant).subscribe(
+      ()=>
+    {
+     this.listetudiants.splice(i,1);
 
+    }
+    );
+   }
 
 }

@@ -1,44 +1,36 @@
 
-<nav class="navbar navbar-expand-lg">
- 
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link " href="#">Search </a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0 ">
-      
-      <input class="form-control mr-sm-2" name="nomE"   type="search" placeholder="Search" aria-label="Search">
-     
-    </form>
-    <button class="btn btn-primary" type="button" (clic)="getfiltred()"  style="margin-left:15px ;">search </button>
-
-  </div>
-</nav>
-
-<div class="container" style="margin-bottom: 25px;" *ngFor=" let item of listetudiants">
-  <div class="card mb-6 textprimary">
-    <img src={{item.picture}} class="card-img-top">
-    <div class="card-body">
-      <h5 class="card-title">{{item.nomE}}</h5>
-      <p class="card-title">{{item.prenomE}}</p>
-      <h5 class="card-title">{{item.date_naissance}}</h5>
-      <p class="card-text">{{item.option}}</p>
-     
-    </div>
+  
+  <div class="container" style=" height:100%; " *ngFor=" let item of listetudiants">
     
-    <div class="more">
-      <a routerLink="">Equipes</a>
-      <a routerLink="">Department</a>
-      <a routerLink="">contrats</a>
-      <a routerLink="">More</a>
+    <div class="row " style="background-color:rgb(183, 181, 181);">
+      <div class="col col-sm-6 "style="padding:15px ">
+  <img src={{item.picture}} class="card-img-top" style="border-width: 2ch; border-radius: 10px; border-block-color: black ;" >
+  <div class=" row cont_button" style="display: flex;
+  justify-content: space-between; height: min-content;"
+   >
+    <button type="button" style="margin:5px"  [routerLink]="['/etudiants/update/',item.idEtudiant]" class="btn btn-outline-secondary">Update</button>
+    <button type="button" style="margin:5px"  (click)="DeleteEtudiant(item)"  class="btn btn-outline-danger"  >Delete</button>
+   
   </div>
-  <button type="button" style="margin:5px"  [routerLink]="['/etudiants/update/',item.idEtudiant]" class="btn btn-outline-secondary">Update</button>
-  </div>
- 
+     </div>
+       <div class="col col-sm-6" style=
+       "display: flex;
+       flex-direction:column; 
+       justify-content: center space-between;
+       padding-left: 5%;
+       font-size: large;
+       color: rgb(53, 0, 123);
+       margin-top: 5px;">
+        <h2 class=" card-title">{{item.nomE}} {{item.prenomE}}</h2>
+        <h2 class=" card-title">{{item.date_naissance}}</h2>
+        <h2 class=" card-title">{{item.option}}</h2>
+        </div>
+       
+ </div>
+
 </div>
+
+
 
 
 

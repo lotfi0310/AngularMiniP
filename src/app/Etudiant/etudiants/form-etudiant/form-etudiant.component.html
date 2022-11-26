@@ -1,48 +1,98 @@
 
 
-<p>{{action}} Etudiant</p>
 
-<form #f="ngForm" >
 
-    <div class="form-group">
+<form #f="ngForm" class="container" style="padding: 20%;" >
+    <p>{{action}} Etudiant</p>
+    <div class="form-group ">
         <div>
-            <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Nom Etudiant</label>
-            <input type="text" class="form-control form-control-sm" [(ngModel)]="etudiant.nomE"  name="nomE" id="colFormLabelSm" placeholder="">
+            <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Nom Etudiant: * </label>
+            <input type="text" class="form-control form-control-sm" [(ngModel)]="etudiant.nomE"  name="nomE" id="colFormLabelSm" placeholder="" required minlength="3"
+            pattern="[A-Za-z]{3,12}$" #n="ngModel">
+            <div class="alert alert-danger" *ngIf="n.invalid && n.touched">
+                <div *ngIf="n.hasError('required')">
+                   this field is required
+                  </div>
+                <div *ngIf="n.hasError('minlength')">
+                   minlength = 3 !
+                </div>
+                <div *ngIf="n.hasError('pattern')">
+                  error pattern
+               </div>
+            </div>
+            <div   *ngIf="!n.invalid " class="alert alert-success" role="alert">
+            success 
+              </div>
         </div>
     </div>
     <div class="form-group">
-
         <div>
             <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Prenom Etudiant</label>
-            <input type="text" class="form-control form-control-sm"[(ngModel)]="etudiant.prenomE" name="prenomE" id="colFormLabelSm" placeholder="">
+            <input type="text" class="form-control form-control-sm"[(ngModel)]="etudiant.prenomE" name="prenomE" id="colFormLabelSm" placeholder="" required minlength="3" pattern="[A-Za-z]{3,12}$" #p="ngModel">
+            <div class=" alert alert-danger" *ngIf="p.invalid && p.touched">
+                <div *ngIf="p.hasError('required')">
+                    this field is required
+                   </div>
+                 <div *ngIf="p.hasError('minlength')">
+                    minlength = 3 !
+                 </div>
+                 <div *ngIf="p.hasError('pattern')">
+                   error pattern
+                </div>
+            </div>
+            <div   *ngIf="!p.invalid " class="alert alert-success" role="alert">
+                success 
+                  </div>
         </div>
     </div>
     <div class="form-group">
        <div>
         <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Date naissance</label>
-        <input type="text" class="form-control form-control-sm" [(ngModel)]="etudiant.date_naissance" name="date_naissance" id="colFormLabelSm" placeholder="">
+        <input type="text" class="form-control form-control-sm" [(ngModel)]="etudiant.date_naissance" name="date_naissance" id="colFormLabelSm" placeholder="" required  minlength="10" maxlength="10" #da="ngModel">
+        <div class="alert alert-danger" *ngIf="da.invalid && da.touched">
+         <div *ngIf="da.hasError('required')">
+            you must pick you birth day
+           </div>
+           
+           <div *ngIf="da.hasError('minlength')|| da.hasError('maxlength')">
+              longeur de date must be 10 !
+           </div>
+      
+         </div>
+         <div   *ngIf="!da.invalid " class="alert alert-success" role="alert">
+            success 
+              </div>
+         
+        </div>
        </div>
-    </div>
+   
     <div class="form-group">
 
         <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">option</label>
 
-    <select class="form-select"   [(ngModel)]="etudiant.option" name="option" aria-label="Default select example">
-        <option selected>Open this to select un option</option>
+    <select class="form-select" #s="ngModel" required    [(ngModel)]="etudiant.option" name="option" aria-label="Default select example">
+        <option selected disabled >Open this to select un option</option>
         <option value="GAMIX">Gamix</option>
         <option value="SE">SE</option>
         <option value="SIM">SIM</option>
         <option value="NIDS">NIDS</option>
       </select>
+      <div  class="alert alert-danger"  *ngIf="s.invalid && s.touched">
+        <div *ngIf="s.hasError('required')">
+            you must pick one of this option 
+        </div>
+      </div>
+      <div   *ngIf="!s.invalid  " class="alert alert-success" role="alert">
+        success 
+          </div>
     </div>
     <div class="form-group"> 
-        <img [src]="imageSrc"  class="img-fluid " style="height: 50px; width:50px">
-        <input type="file" class="form-control" [(ngModel)]="etudiant.picture" src="url"   (change)="onFileChange($event)"  name="picture" id="customFile" />
+
+        <input type="file"  class="form-control" [(ngModel)]="etudiant.picture" src="url" style="margin-top: 4%;"   (change)="onFileChange($event)"  name="picture" id="customFile" />
         </div>
 
     <div class="form-group">
-        <button class=" btn btn-outline-primary"style="margin:5px" type=" submit"   (click)="saveEtudiant()" >{{action}}</button>
-        <button type="button" style="margin:5px"  (click)="DeleteEtudiant()"  class="btn btn-outline-danger"  >Delete</button>
+        <button class=" btn btn-outline-primary"style="margin:5px" type=" submit" style="margin-top:4%"     [disabled]="f.invalid"   (click)="saveEtudiant()" >{{action}}</button>
     </div>
   
 </form>

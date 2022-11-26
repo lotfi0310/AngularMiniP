@@ -31,7 +31,7 @@ updateEtudiant(e:etudiants){
   return this.httpClient.put(this.url_apilist+'updateStudentById',e)
 }
 deleteEtudiantByID(id:number ){
-   return this.httpClient.delete(this.url_apilist+'deletestudent/'+id)
+   return this.httpClient.delete(this.url_apilist+'deletestudent/'+id);
    console.log(id);
 }
  

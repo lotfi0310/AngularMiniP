@@ -66,11 +66,7 @@ export class FormEtudiantComponent implements OnInit {
   }
 
 
-  DeleteEtudiant(){
-    this.etudiantService.deleteEtudiantByID(this.idEtudiant).subscribe(
-     ()=>{ this.route.navigate(['/etudiants'])}
-    )
-   }
+
  
 
 
