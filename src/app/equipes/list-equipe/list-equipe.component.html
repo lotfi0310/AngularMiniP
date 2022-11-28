@@ -1,14 +1,15 @@
 
 <body>
     <br><br>
-
+    <div class="search">
+    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="search">
+  </div>
 <div class="container">
     <h1>Clubs</h1>
     <br>
-
 <div class="row">
 
-<div class="col" *ngFor="let i of listE">
+<div class="col" *ngFor="let i of listE | filter:searchText">
 <div >
     <div class="card-body"  [routerLink]="['/equipes/update',i.idEquipe]">
         <div
@@ -19,8 +20,9 @@
         <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
       </a>
     </div>
+  
 
-      <h4 class="card-text">{{i.nomEquipe}}<br><h6>({{i.niveau}})</h6></h4>
+     <h4 class="card-text">{{i.nomEquipe}}<br><h6>({{i.niveau}})</h6></h4> 
     </div>
   </div>
 </div>

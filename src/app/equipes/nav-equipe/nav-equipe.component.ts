@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EquipeService } from 'src/app/core/services/equipe.service';
+import { Equipe } from 'src/app/core/model/equipe';
 
 @Component({
   selector: 'app-nav-equipe',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavEquipeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private equipeService: EquipeService) { }
+  searchText: any;
+  public listE: Equipe[];
 
   ngOnInit(): void {
+    this.equipeService.getAllProduct().subscribe(
+      (X:Equipe[])=>{
+        this.listE = X;
+      }
+    )
   }
 
 }

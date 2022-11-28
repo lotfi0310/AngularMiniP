@@ -11,7 +11,7 @@
       <form #f="ngForm">
        <div class="form-group col-md-6">
           <label>Name:*</label>
-          <input type="text" name="name" [(ngModel)]="equipe.nomEquipe"
+          <input  type="text" name="name" [(ngModel)]="equipe.nomEquipe"
           class="form-control" required minlength="3"
            pattern="[A-Za-z]{3,12}$" #n="ngModel">
           <div class="alert alert-danger" *ngIf="n.invalid && n.touched">
@@ -61,7 +61,12 @@
     <div class="row" style="position:relative; top:-250px;">
       <div class="col">
 
-        <h5>{{equipe.niveau}}</h5>
+        <h5 [ngStyle]="{'font-size.px':13}" [style.color]="'white'">
+           <p [ngClass]="{ 'text-success':equipe.niveau === 'JUNIOR',
+          'text-primary':equipe.niveau === 'SENIOR',
+          'text-danger':equipe.niveau === 'EXPERT'
+          }">  {{equipe.niveau}}    </p>
+        </h5>
       </div>
       </div>
   </div>

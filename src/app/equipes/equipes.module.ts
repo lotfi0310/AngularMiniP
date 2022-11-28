@@ -9,6 +9,8 @@ import { FormEquipeComponent } from './form-equipe/form-equipe.component';
 import { FormsModule } from '@angular/forms';
 import {NgForm} from '@angular/forms';
 import { DetailEquipeComponent } from './detail-equipe/detail-equipe.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 @NgModule({
@@ -22,7 +24,8 @@ import { DetailEquipeComponent } from './detail-equipe/detail-equipe.component';
   imports: [
     CommonModule,
     EquipesRoutingModule,
-    FormsModule
+    FormsModule,
+    Ng2SearchPipeModule
   ]
 })
 export class EquipesModule { }
