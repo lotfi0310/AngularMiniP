@@ -10,19 +10,13 @@ import { EtudiantService } from 'src/app/core/services/etudiant.service';
 
 export class NavEtudiantComponent implements OnInit {
   public filtredlist :etudiants[] ;
-   public name :String ; 
   constructor(private etudiantService :EtudiantService) {
-    this.name=this.name;
    }
 
   ngOnInit(): void {
     
     }
-    getfiltred(name :String){
-      this.etudiantService.getEtudiantFiltredbyname(name).subscribe( data =>{
-        this.filtredlist=data; 
-      })
-    }
+   
   
   
 

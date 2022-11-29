@@ -1,93 +1,91 @@
 <html><head><title>W3.CSS</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-@media screen and (max-width: 455px) {
-    .h3 {
-        font-size:16px;
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="sidebar.component.css">
+    <style>
+    @media screen and (max-width: 455px) {
+        .h3 {
+            font-size:16px;
+        }
     }
-}
-</style>
-</head>
-<body>
-
-<div class="w3-sidebar w3-light-grey w3-card-4 w3-animate-left" style="width:275px " id="mySidebar">
-
-  <div class="w3-bar-block">
-  <a class="w3-bar-item w3-button w3-green" href="javascript:void(0)">Home</a>
-
-  <div class="w3-dropdown-hover">
+   
+    </style>
+    </head>
+    <body>
     
-    <a  routerLink="/etudiants" class="w3-button" href="javascript:void(0)">Etudiants <i class="fa fa-caret-down"></i></a>
-    <div class="w3-dropdown-content w3-bar-block w3-card-4">
-      <a   routerLink="/etudiants/add" class="w3-bar-item w3-button" href="javascript:void(0)"> create new </a>
+    <div class="w3-sidebar w3-light-grey w3-card-4 w3-animate-left" style="width:275px " id="mySidebar">
     
-    </div>
-  </div>
-  
-  <div class="w3-dropdown-hover">
-    <a   routerLink="/contrats" class="w3-button" href="javascript:void(0)">Contrats <i class="fa fa-caret-down"></i></a>
-    <div class="w3-dropdown-content w3-bar-block w3-card-4">
-      <a  class="w3-bar-item w3-button" href="javascript:void(0)">Link 1</a>
+      <div class="w3-bar-block">
+      <a class="w3-bar-item w3-button w3-green" href="javascript:void(0)">Home</a>
+    
+      <div class="w3-dropdown-hover">
+        
+        <a  routerLink="/etudiants" class="w3-button" href="javascript:void(0)">Etudiants <i class="fa fa-caret-down"></i></a>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+          <a   routerLink="/etudiants/add" class="w3-bar-item w3-button" href="javascript:void(0)"> create new </a>
+        
+        </div>
+      </div>
       
-    </div>
-  </div>
-  
-  <div class="w3-dropdown-hover">
-    <a  routerLink="/equipes"class="w3-button" href="javascript:void(0)">Equipes <i class="fa fa-caret-down"></i></a>
-    <div class="w3-dropdown-content w3-bar-block w3-card-4">
-      <a  class="w3-bar-item w3-button" href="javascript:void(0)">Link 1</a>
+      <div class="w3-dropdown-hover">
+        <a   routerLink="/contrats" class="w3-button" href="javascript:void(0)">Contrats <i class="fa fa-caret-down"></i></a>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+          <a  class="w3-bar-item w3-button" href="javascript:void(0)">Link 1</a>
+          
+        </div>
+      </div>
       
-    </div>
-  </div>
-  
-  <div class="w3-dropdown-hover">
-    <a   routerLink="/detailequipes" class="w3-button" href="javascript:void(0)"> Detail Equipes<i class="fa fa-caret-down"></i></a>
-    <div class="w3-dropdown-content w3-bar-block w3-card-4">
-      <a  class="w3-bar-item w3-button" href="javascript:void(0)">Link 1</a>
+      <div class="w3-dropdown-hover">
+        <a  routerLink="/equipes"class="w3-button" href="javascript:void(0)">Equipes <i class="fa fa-caret-down"></i></a>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+          <a  class="w3-bar-item w3-button" href="javascript:void(0)">Link 1</a>
+          
+        </div>
+      </div>
       
-    </div>
-  </div>
-  
-  <div class="w3-dropdown-hover">
-    <a routerLink="/departments" class="w3-button" href="javascript:void(0)">Departements <i class="fa fa-caret-down"></i></a>
-    <div class="w3-dropdown-content w3-bar-block w3-card-4">
-      <a  class="w3-bar-item w3-button" href="javascript:void(0)">Link 1</a>
-     
-    </div>
-  </div>
-  
-  <div class="w3-dropdown-hover">
-    <a   routerLink="/universities" class="w3-button" href="javascript:void(0)">Université <i class="fa fa-caret-down"></i></a>
-    <div class="w3-dropdown-content w3-bar-block w3-card-4">
-      <a  class="w3-bar-item w3-button" href="javascript:void(0)">Link 1</a>
-     
-    </div>
-  </div>
-  </div>
-</div>
-
-<div id="main" style="margin-left:200px">
-  <router-outlet></router-outlet>
-
-
-</div>
-
-<script>
-function w3_open() {
-  document.getElementById("main").style.marginLeft = "300px";
-  document.getElementById("mySidebar").style.width = "180px";
-  document.getElementById("mySidebar").style.display = "block";
-  document.getElementById("openNav").style.display = 'none';
-}
-function w3_close() {
-  document.getElementById("main").style.marginLeft = "0";
-  document.getElementById("mySidebar").style.display = "none";
-  document.getElementById("openNav").style.display = "inline-block";
-}
-</script>
+      <div class="w3-dropdown-hover">
+        <a   routerLink="/detailequipes" class="w3-button" href="javascript:void(0)"> Detail Equipes<i class="fa fa-caret-down"></i></a>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+          <a  class="w3-bar-item w3-button" href="javascript:void(0)">Link 1</a>
+          
+        </div>
+      </div>
       
-
- </body></html>
-
+      <div class="w3-dropdown-hover">
+        <a routerLink="/departments" class="w3-button" href="javascript:void(0)">Departements <i class="fa fa-caret-down"></i></a>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+          <a  class="w3-bar-item w3-button" href="javascript:void(0)">Link 1</a>
+         
+        </div>
+      </div>
+      
+      <div class="w3-dropdown-hover">
+        <a   routerLink="/universities" class="w3-button" href="javascript:void(0)">Université <i class="fa fa-caret-down"></i></a>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+          <a  class="w3-bar-item w3-button" href="javascript:void(0)">Link 1</a>
+         
+        </div>
+      </div>
+      </div>
+    </div>
+    
+    <div id="main" style="margin-left:200px; color: rgb(0, 147, 59);">
+      <router-outlet></router-outlet>
+    </div>
+    
+    <script>
+    function w3_open() {
+      document.getElementById("main").style.marginLeft = "300px";
+      document.getElementById("mySidebar").style.width = "180px";
+      document.getElementById("mySidebar").style.display = "block";
+      document.getElementById("openNav").style.display = 'none';
+    }
+    function w3_close() {
+      document.getElementById("main").style.marginLeft = "0";
+      document.getElementById("mySidebar").style.display = "none";
+      document.getElementById("openNav").style.display = "inline-block";
+    }
+    </script>
+          
+    
+     </body></html>

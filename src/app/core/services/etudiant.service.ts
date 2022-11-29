@@ -9,7 +9,7 @@ import { etudiants } from '../model/etudiants';
 export class EtudiantService {
  public  url_apilist= environment.url ;
  getallquery='DisplayStudents' ;
- filter='filterEtudiantsBeginByName/';
+ filter='existenceByName/';
   constructor(private httpClient :HttpClient) {
     console.log(this.url_apilist);
 

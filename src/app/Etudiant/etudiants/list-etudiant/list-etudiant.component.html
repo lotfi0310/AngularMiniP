@@ -1,43 +1,46 @@
+<div class="input-group" style="margin-bottom: 10px;">
+  <input type="search" class="form-control rounded"  placeholder="Search" name="nomE"  aria-label="Search" aria-describedby="search-addon" />
+  <button type="button" style="color: green;"   class="btn btn-secondary" (click)="getThisEtudiant()">search</button>
+</div>  
 
-  
-  <div class="container" style=" height:100%; " *ngFor=" let item of listetudiants">
-    <app-nav-etudiant></app-nav-etudiant>
-    <div class="row " style="background-color:rgb(183, 181, 181);">
-      <div class="col col-sm-6 "style="padding:15px ">
-  <img src={{item.picture}} class="card-img-top" style="border-width: 2ch; border-radius: 10px; border-block-color: black ;" >
-  <div class=" row cont_button" style="display: flex;
-  justify-content: space-between; height: min-content;"
-   >
-    <button type="button" style="margin:5px"  [routerLink]="['/etudiants/update/',item.idEtudiant]" class="btn btn-outline-secondary">Update</button>
-    <button type="button" style="margin:5px"  (click)="DeleteEtudiant(item)"  class="btn btn-outline-danger"  >Delete</button>
-   
+
+<div class="container col " style="  margin-top :10px;display: flex; flex-direction: column ;justify-content: space-beetween;
+ " *ngFor=" let item of listetudiants; let i=index">
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-equipes-tab" data-toggle="tab" [routerLink]="['/etudiants/etudiantequipes',item.idEtudiant]" role="tab" aria-controls="nav-home" aria-selected="true"> Etudiant Equipes</a>
+    <a class="nav-item nav-link" id="nav-contrats-tab" data-toggle="tab" [routerLink]="['/etudiants/etudiant-contrat',item.idEtudiant]" role="tab" aria-controls="nav-profile" aria-selected="false">Etudiant contrats</a>
   </div>
-     </div>
-       <div class="col col-sm-6" style=
-       "display: flex;
-       flex-direction:column; 
-       justify-content: center space-between;
-       padding-left: 5%;
-       font-size: large;
-       color: rgb(53, 0, 123);
-       margin-top: 5px;">
-        <h2 class=" card-title">{{item.nomE}} {{item.prenomE}}</h2>
-        <h2 class=" card-title">{{item.date_naissance}}</h2>
-        <h2 class=" card-title">{{item.option}}</h2>
-        </div>
-       
- </div>
+ 
+</nav>
 
+  <div class=" row " style="background-color:rgb(183, 181, 181);">
+    <div class="col col-sm-6 "style="padding:15px ">
+<img src={{item.picture}} class="card-img-top" style="border-width: 2ch; border-radius: 10px; border-block-color: black ;" >
+<div class=" row cont_button" style="display: flex;
+justify-content: space-between; height: min-content;"
+ >
+  <button type="button" style="margin:5px"  [routerLink]="['/etudiants/update/',item.idEtudiant]" class="btn btn-outline-secondary">Update</button>
+  <button type="button" style="margin:5px"   (click)="DeleteEtudiant(item, i)"  class="btn btn-outline-danger"  >Delete</button>
+ 
+</div>
+   </div>
+     <div class="col col-sm-6" style=
+     "display: flex;
+     flex-direction:column; 
+     justify-content: center space-between;
+     padding-left: 5%;
+     font-size: large;
+     color: rgb(111, 0, 255);
+     margin-top: 5px;">
+      <h2 class=" card-title">{{item.nomE}} {{item.prenomE}}</h2>
+      <h2 class=" card-title">{{item.date_naissance}}</h2>
+      <h2 class=" card-title">{{item.option}}</h2>
+     
+
+      </div>
+     
 </div>
 
-
-
-
-
-
-
-
-
-
-
+</div>
 

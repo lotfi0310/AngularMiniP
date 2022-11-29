@@ -12,8 +12,10 @@ export class ListEtudiantComponent implements OnInit {
   public listetudiants :etudiants[];
   public filredliste: etudiants[];
   public list :etudiants[]; 
-  public nomE :String; 
-  constructor(private etudiantService : EtudiantService,private route:Router) { }
+  name :String;
+  constructor(private etudiantService : EtudiantService,private route:Router,private current:ActivatedRoute) {
+    
+   }
 
   ngOnInit(): void {
     this.etudiantService.getEtudiantsListe().subscribe(
@@ -22,26 +24,23 @@ export class ListEtudiantComponent implements OnInit {
     })
   }
 
-  getfiltred(){
-  this.etudiantService.getEtudiantFiltredbyname(this.nomE).subscribe(data2 =>{
-    this.filredliste=data2; 
-    this.route.navigate(['etudiants/']);
-    console.log(this.filredliste);
-    console.log(this.nomE);
-  })
-  }
 
-  DeleteEtudiant(item:etudiants){
+
+  DeleteEtudiant(item:etudiants, j: number){
     let i = this.listetudiants.indexOf(item);
     console.log(i);
     console.log(item.idEtudiant);
     this.etudiantService.deleteEtudiantByID(item.idEtudiant).subscribe(
-      ()=>
-    {
-     this.listetudiants.splice(i,1);
+      ()=>{console.log("done");this.listetudiants.splice(j,1)}
 
-    }
-    );
+    )
+   }
+   
+  getThisEtudiant(){
+
+    this.etudiantService.getEtudiantFiltredbyname(this.name).subscribe(data2 =>{
+      this.listetudiants=data2; 
+    })
    }
 
 }
