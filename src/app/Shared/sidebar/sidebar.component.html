@@ -1,91 +1,80 @@
-<html><head><title>W3.CSS</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="sidebar.component.css">
-    <style>
-    @media screen and (max-width: 455px) {
-        .h3 {
-            font-size:16px;
-        }
-    }
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width ,initial-scale=1.0">
+    <title>MiniProjet</title>
    
-    </style>
-    </head>
-    <body>
-    
-    <div class="w3-sidebar w3-light-grey w3-card-4 w3-animate-left" style="width:275px " id="mySidebar">
-    
-      <div class="w3-bar-block">
-      <a class="w3-bar-item w3-button w3-green" href="javascript:void(0)">Home</a>
-    
-      <div class="w3-dropdown-hover">
-        
-        <a  routerLink="/etudiants" class="w3-button" href="javascript:void(0)">Etudiants <i class="fa fa-caret-down"></i></a>
-        <div class="w3-dropdown-content w3-bar-block w3-card-4">
-          <a   routerLink="/etudiants/add" class="w3-bar-item w3-button" href="javascript:void(0)"> create new </a>
-        
-        </div>
+    <link rel="stylesheet" type="text/css" href="sidebar.component.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="navigation">
+        <ul>
+          <li>
+            <a routerLink="#">
+              <span class="icon"></span>
+              <span class="title">Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a routerLink="/etudiants">
+              <span class="icon"></span>
+              <span class="title">Etudiants</span>
+            </a>
+          </li>
+          <a  routerLink="/etudiants/add"  style="display: flex;
+           justify-content: center; color: azure;"> create new </a>
+
+          <li>
+            <a routerLink="/contrats">
+              <span class="icon"></span>
+              <span class="title">Contrats</span>
+            </a>
+          </li>
+          <li>
+            <a routerLink="/equipes">
+              <span class="icon"></span>
+              <span class="title">Equipes</span>
+            </a>
+          </li>
+          <li>
+            <a routerLink="/detailequipes">
+              <span class="icon"></span>
+              <span class="title">Detail Equipe</span>
+            </a>
+          </li>
+          <li>
+            <a routerLink="/departments">
+              <span class="icon"></span>
+              <span class="title">Departments</span>
+            </a>
+          </li>
+          <li>
+            <a routerLink="/universities">
+              <span class="icon"></span>
+              <span class="title">University</span>
+            </a>
+          </li>
+        </ul>
       </div>
-      
-      <div class="w3-dropdown-hover">
-        <a   routerLink="/contrats" class="w3-button" href="javascript:void(0)">Contrats <i class="fa fa-caret-down"></i></a>
-        <div class="w3-dropdown-content w3-bar-block w3-card-4">
-          <a  class="w3-bar-item w3-button" href="javascript:void(0)">Link 1</a>
-          
-        </div>
-      </div>
-      
-      <div class="w3-dropdown-hover">
-        <a  routerLink="/equipes"class="w3-button" href="javascript:void(0)">Equipes <i class="fa fa-caret-down"></i></a>
-        <div class="w3-dropdown-content w3-bar-block w3-card-4">
-          <a  class="w3-bar-item w3-button" href="javascript:void(0)">Link 1</a>
-          
-        </div>
-      </div>
-      
-      <div class="w3-dropdown-hover">
-        <a   routerLink="/detailequipes" class="w3-button" href="javascript:void(0)"> Detail Equipes<i class="fa fa-caret-down"></i></a>
-        <div class="w3-dropdown-content w3-bar-block w3-card-4">
-          <a  class="w3-bar-item w3-button" href="javascript:void(0)">Link 1</a>
-          
-        </div>
-      </div>
-      
-      <div class="w3-dropdown-hover">
-        <a routerLink="/departments" class="w3-button" href="javascript:void(0)">Departements <i class="fa fa-caret-down"></i></a>
-        <div class="w3-dropdown-content w3-bar-block w3-card-4">
-          <a  class="w3-bar-item w3-button" href="javascript:void(0)">Link 1</a>
-         
-        </div>
-      </div>
-      
-      <div class="w3-dropdown-hover">
-        <a   routerLink="/universities" class="w3-button" href="javascript:void(0)">Université <i class="fa fa-caret-down"></i></a>
-        <div class="w3-dropdown-content w3-bar-block w3-card-4">
-          <a  class="w3-bar-item w3-button" href="javascript:void(0)">Link 1</a>
-         
-        </div>
-      </div>
+      <div class="main">
+        <router-outlet></router-outlet>
       </div>
     </div>
+
     
-    <div id="main" style="margin-left:200px; color: rgb(0, 147, 59);">
-      <router-outlet></router-outlet>
-    </div>
-    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script>
-    function w3_open() {
-      document.getElementById("main").style.marginLeft = "300px";
-      document.getElementById("mySidebar").style.width = "180px";
-      document.getElementById("mySidebar").style.display = "block";
-      document.getElementById("openNav").style.display = 'none';
-    }
-    function w3_close() {
-      document.getElementById("main").style.marginLeft = "0";
-      document.getElementById("mySidebar").style.display = "none";
-      document.getElementById("openNav").style.display = "inline-block";
-    }
+      let list=document.querySelectorAll(' .navigation li');
+      function activeLink(){
+          list.array.forEach((item) =>item.classList.remove('hovered'));
+          this.classList.add('hovered');
+      }
+      list.forEach((item)=>
+      item.addEventListener('mouseover',activeLink)
+      )
     </script>
-          
-    
-     </body></html>
+   
+  </body>
+</html>

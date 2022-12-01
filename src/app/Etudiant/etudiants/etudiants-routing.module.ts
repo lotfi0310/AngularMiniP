@@ -7,13 +7,15 @@ import { EtudiantsComponent } from './etudiants.component';
 import { FormEtudiantComponent } from './form-etudiant/form-etudiant.component';
 import { ListEtudiantComponent } from './list-etudiant/list-etudiant.component';
 import { NavEtudiantComponent } from './nav-etudiant/nav-etudiant.component';
+import { StatisticsComponent } from './statistics/statistics.component';
 
 const routes: Routes = [{ path: '', component: EtudiantsComponent,children:[
   {path:'',component:ListEtudiantComponent}, 
   {path:'add',component:FormEtudiantComponent},
   {path:'update/:idEtudiant',component:FormEtudiantComponent},
   {path:'etudiantequipes/:idEtudiant',component:EtudiantequipesComponent},
-  {path:'etudiant-contrat/:idEtudiant',component:EtudiantContratComponent}
+  {path:'etudiant-contrat/:idEtudiant',component:EtudiantContratComponent},
+  {path:'statistics.component',component:StatisticsComponent}
 
 ] }
 

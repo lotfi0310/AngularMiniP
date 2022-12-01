@@ -8,11 +8,14 @@ import { EtudiantService } from 'src/app/core/services/etudiant.service';
   templateUrl: './list-etudiant.component.html',
   styleUrls: ['./list-etudiant.component.css']
 })
+
 export class ListEtudiantComponent implements OnInit {
   public listetudiants :etudiants[];
   public filredliste: etudiants[];
   public list :etudiants[]; 
   name :String;
+  searchText: any; 
+  age:number; 
   constructor(private etudiantService : EtudiantService,private route:Router,private current:ActivatedRoute) {
     
    }
