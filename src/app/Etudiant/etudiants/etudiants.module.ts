@@ -10,6 +10,8 @@ import { EtudiantequipesComponent } from './etudiantequipes/etudiantequipes.comp
 import { EtudiantContratComponent } from './etudiant-contrat/etudiant-contrat.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { StatisticsComponent } from './statistics/statistics.component';
+import { DetailEtudiantComponent } from './detail-etudiant/detail-etudiant.component';
+import { ItemEtudiantComponent } from './item-etudiant/item-etudiant.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { StatisticsComponent } from './statistics/statistics.component';
     FormEtudiantComponent,
     EtudiantequipesComponent,
     EtudiantContratComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    DetailEtudiantComponent,
+    ItemEtudiantComponent
   
   ],
   imports: [

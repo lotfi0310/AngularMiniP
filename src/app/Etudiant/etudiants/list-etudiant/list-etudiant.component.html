@@ -1,47 +1,16 @@
 <div class="input-group" style="margin-bottom: 10px;">
   <input type="search" class="form-control rounded"  placeholder="Search" name="search" [(ngModel)]="searchText"  aria-label="Search" aria-describedby="search-addon" autocomplete="on" />
 </div>
-
-<a class="nav-item nav-link active" id="nav-equipes-tab" data-toggle="tab" [routerLink]="['/etudiants/statistics.component']" role="tab" aria-controls="nav-home" aria-selected="true">Statistics</a>
+<button  class="btn btn-outline-primary" style="margin-right: 2%;" [routerLink]="['/etudiants/add'] "> new Student</button>
+<button class=" btn btn-outline-primary"[routerLink]="['/etudiants/statistics.component']" role="tab" aria-controls="nav-home" aria-selected="true">Statistics</button>
 
 
 <div class="container col " style="  margin-top :10px;display: flex; flex-direction: column ;justify-content: space-beetween; border-radius: 5px;
  " *ngFor=" let item of listetudiants |  filter:searchText ; let i=index">
-<nav>
-  <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <a class="nav-item nav-link active" id="nav-equipes-tab" data-toggle="tab" [routerLink]="['/etudiants/etudiantequipes',item.idEtudiant]" role="tab" aria-controls="nav-home" aria-selected="true"> Etudiant Equipes</a>
-    <a class="nav-item nav-link" id="nav-contrats-tab" data-toggle="tab" [routerLink]="['/etudiants/etudiant-contrat',item.idEtudiant]" role="tab" aria-controls="nav-profile" aria-selected="false">Etudiant contrats</a>
 
-  </div>
  
-</nav>
-
-  <div class=" row " style="background-color:#F5F5F5; border-radius: 10px;">
-    <div class="col col-sm-6 "style="padding:40px ">
-<img src={{item.picture}} class="card-img-top" style="border-width: 2ch; border-radius: 10px; border-block-color: black ;" >
-<div class=" row cont_button" style="display: flex;
-justify-content: space-between; height: min-content;"
- >
-  <button type="button" style="margin:5px"  [routerLink]="['/etudiants/update/',item.idEtudiant]" class="btn btn-outline-secondary">Update</button>
-  <button type="button" style="margin:5px"   (click)="DeleteEtudiant(item, i)"  class="btn btn-outline-danger"  >Delete</button>
-
-</div>
-   </div>
-     <div class="col col-sm-6" style=
-     "display: flex;
-     flex-direction:column; 
-     justify-content: center space-around;
-     padding-left: 5%;
-     font-size: large;
-     color: #FFF;
-     margin-top: 5px;">
-      <h2 class=" card-title" style="color: #111;">{{item.nomE}} {{item.prenomE}}</h2>
-      <h2 class=" card-title" style="color: #111;">{{item.date_naissance }}</h2>
-      <h2 class=" card-title" style="color: #111;">{{item.option}}</h2>
-      
-    </div>
      
-</div>
+<app-item-etudiant [etudiant]="item" (deleteEtudiant)="DeleteEtudiant(item)" ></app-item-etudiant>
 
 </div>
 

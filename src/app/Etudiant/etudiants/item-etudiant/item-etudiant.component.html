@@ -1,0 +1,32 @@
+<nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <a class="nav-etudiant nav-link active" style="color:#F00" id="nav-equipes-tab" data-toggle="tab" [routerLink]="['/etudiants/etudiantequipes',etudiant.idEtudiant]" role="tab" aria-controls="nav-home" aria-selected="true"> Etudiant Equipes</a>
+      <a class="nav-etudiant nav-link active" style="color:#F00" id="nav-contrats-tab" data-toggle="tab" [routerLink]="['/etudiants/etudiant-contrat',etudiant.idEtudiant]" role="tab" aria-controls="nav-profile" aria-selected="false">Etudiant contrats</a>
+    </div>
+</nav>
+<div class=" row " style="background-color:#F5F5F5; border-radius: 10px;">
+    <div class="col col-sm-6 "style="padding:40px ">
+<img src={{etudiant.picture}} class="card-img-top" style="border-width: 2ch; border-radius: 10px; border-block-color: black ;" >
+<div class=" row cont_button" style="display: flex;
+justify-content: space-between; height: min-content;"
+ >
+  <button type="button" style="margin:5px"  [routerLink]="['/etudiants/update/',etudiant.idEtudiant]" class="btn btn-warning">Update</button>
+  <button type="button" style="margin:5px"   (click)="delete()"  class="btn btn-danger"  >Delete</button>
+</div>
+   </div>
+     <div class="col col-sm-6" style=
+     "display: flex;
+     padding:200px;
+     flex-direction:column; 
+     justify-content: center space-around;
+     padding-left: 5%;
+     font-size: large;
+     color: #FFF;
+   ">
+      <h2 class=" card-title" style="color: #111;">{{etudiant.nomE}} {{etudiant.prenomE}}</h2>
+      <h2 class=" card-title" style="color: #111;">{{etudiant.date_naissance }}</h2>
+      <h2 class=" card-title" style="color: #111;">{{etudiant.option}}</h2>
+      <button class="btn btn-primary" id="nav-contrats-tab" data-toggle="tab" [routerLink]="['/etudiants/app-detail-etudiant']" role="tab" aria-controls="nav-profile" aria-selected="false">See more about {{etudiant.nomE}}</button>
+    </div>
+     
+</div>

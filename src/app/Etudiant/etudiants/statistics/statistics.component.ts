@@ -42,5 +42,18 @@ export class StatisticsComponent implements OnInit {
   
 
 }
+setMystyle(){
+
+  let style= {
+    'margin': '5vmin auto',
+    'border-radius': '50%',
+    'width': '90vmin',
+    'height': '90vmin',
+    'overflow': 'hidden',
+    'background':'linear-gradient(to right, #2196f3 '+this.percentabove20+'%, transparent 50%),linear-gradient(to right, #2196f3 '+this.percentabove20+'%, #ffc107 '+this.percentunder20+'%)'
+  };
+
+  return style;
+}
 
 }

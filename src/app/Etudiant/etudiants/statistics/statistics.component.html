@@ -1,6 +1,6 @@
 
-<div class=" row ">
-  <div class="col col-sm-8" >
+
+  <div class="col " >
     <p style="display: flex; flex-direction:center ;
 justify-content: center;">Age_Etudiant </p>
 <div class=" row">
@@ -8,23 +8,19 @@ justify-content: center;">Age_Etudiant </p>
     <svg xmlns="http://www.w3.org/2000/svg" width="16" class="col col-sm-6 " height="16"  style=" color:#ffc107;" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
       <circle cx="8" cy="8" r="8"/>
     </svg>
-    <p class="col col-sm-6"> age inferieur a 20 </p>
+    <p class="col col-sm-6"> age inferieur a 20/{{countageunder20}} :Student</p>
     <svg xmlns="http://www.w3.org/2000/svg" width="16" class="col col-sm-6 " height="16"  style=" color:#2196f3;" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
       <circle cx="8" cy="8" r="8"/>
     </svg>
-    <p class="col col-sm-6"> age superieur a 20 </p>
+    <p class="col col-sm-6"> age superieur a 20/{{countageabove20}}:Student</p>
 
   </div>
 </div>
 
-  <div class="pie">
-    <div class="ageUnder20">{{percentunder20}}% {{countageunder20}} :Etudiant</div>
-    <div class="ageabove20">{{percentabove20}}% {{countageabove20}} :Etudiant</div>
+  <div class="pie" [ngStyle]='setMystyle()' >
+    <div class="ageUnder20">{{percentunder20}}% </div>
+    <div class="ageabove20">{{percentabove20}}%</div>
   </div>
-  
 
-  </div>
-  <div class="col col-sm-4">
-    <p>about_gendre</p>
-  </div>
+  
 </div>

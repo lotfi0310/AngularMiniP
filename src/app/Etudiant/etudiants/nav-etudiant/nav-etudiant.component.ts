@@ -11,6 +11,7 @@ import { EtudiantService } from 'src/app/core/services/etudiant.service';
 export class NavEtudiantComponent implements OnInit {
   public filtredlist :etudiants[] ;
   constructor(private etudiantService :EtudiantService) {
+    
    }
 
   ngOnInit(): void {

@@ -29,18 +29,18 @@ export class ListEtudiantComponent implements OnInit {
 
 
 
-  DeleteEtudiant(item:etudiants, j: number){
+  DeleteEtudiant(item:any){
     let i = this.listetudiants.indexOf(item);
     console.log(i);
     console.log(item.idEtudiant);
     this.etudiantService.deleteEtudiantByID(item.idEtudiant).subscribe(
-      ()=>{console.log("done");this.listetudiants.splice(j,1)}
+      ()=>{console.log("done");this.listetudiants.splice(i,1)
+    }
 
     )
    }
    
   getThisEtudiant(){
-
     this.etudiantService.getEtudiantFiltredbyname(this.name).subscribe(data2 =>{
       this.listetudiants=data2; 
     })
