@@ -19,6 +19,11 @@ export class etudiants{
           archive: boolean; 
           montantContrat:number; 
         }  
-     ]
+     ] ;
+     departement:{
+          idDepart:number;
+          nomDepart:String;
+
+     };
     
 }

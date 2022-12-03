@@ -22,7 +22,9 @@ export class EtudiantService {
   }
   getEtudiantFiltredbyname(name:String):Observable<etudiants[]>{
     return this.httpClient.get<etudiants[]>(`${this.url_apilist+this.filter+name}`); 
-    
+  }
+  getEtudiantByDepartment(id:number):Observable<etudiants[]>{
+    return this.httpClient.get<etudiants[]>(`${'http://localhost:8089/SpringMVC/DepartmentController/GetListOfEtudiantsByDepartment/'+id}`);
   }
  addEtudiant(e:etudiants){
     return this.httpClient.post(this.url_apilist+'ajouterEtudiant',e)
@@ -35,5 +37,4 @@ deleteEtudiantByID(id:number ){
    console.log(id);
 }
  
-
 }

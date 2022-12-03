@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { etudiants } from 'src/app/core/model/etudiants';
 import { EtudiantService } from 'src/app/core/services/etudiant.service';
+import { ItemEtudiantComponent } from '../item-etudiant/item-etudiant.component';
 
 @Component({
   selector: 'app-list-etudiant',
@@ -16,6 +17,7 @@ export class ListEtudiantComponent implements OnInit {
   name :String;
   searchText: any; 
   age:number; 
+  
   constructor(private etudiantService : EtudiantService,private route:Router,private current:ActivatedRoute) {
     
    }
@@ -40,10 +42,6 @@ export class ListEtudiantComponent implements OnInit {
     )
    }
    
-  getThisEtudiant(){
-    this.etudiantService.getEtudiantFiltredbyname(this.name).subscribe(data2 =>{
-      this.listetudiants=data2; 
-    })
-   }
+  
 
 }

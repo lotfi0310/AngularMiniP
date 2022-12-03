@@ -12,7 +12,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { DetailEtudiantComponent } from './detail-etudiant/detail-etudiant.component';
 import { ItemEtudiantComponent } from './item-etudiant/item-etudiant.component';
-
+import { DepartmentEtudiantComponent } from './department-etudiant/department-etudiant.component';
+import { ListetudiantbydepartmentComponent } from './listetudiantbydepartment/listetudiantbydepartment.component';
 @NgModule({
   declarations: [
     EtudiantsComponent,
@@ -23,14 +24,18 @@ import { ItemEtudiantComponent } from './item-etudiant/item-etudiant.component';
     EtudiantContratComponent,
     StatisticsComponent,
     DetailEtudiantComponent,
-    ItemEtudiantComponent
-  
+    ItemEtudiantComponent,
+    DepartmentEtudiantComponent,
+    ListetudiantbydepartmentComponent
+
+
   ],
   imports: [
     CommonModule,
     FormsModule,
     EtudiantsRoutingModule,
     Ng2SearchPipeModule
+
 
   ]
 })
