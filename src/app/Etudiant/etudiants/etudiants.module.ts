@@ -7,15 +7,18 @@ import { NavEtudiantComponent } from './nav-etudiant/nav-etudiant.component';
 import { FormEtudiantComponent } from './form-etudiant/form-etudiant.component';
 
 @NgModule({
-  declarations: [
-    EtudiantsComponent,
-    ListEtudiantComponent,
-    NavEtudiantComponent,
-    FormEtudiantComponent
-  ],
-  imports: [
-    CommonModule,
-    EtudiantsRoutingModule
-  ]
+    declarations: [
+        EtudiantsComponent,
+        ListEtudiantComponent,
+        NavEtudiantComponent,
+        FormEtudiantComponent
+    ],
+    exports: [
+        NavEtudiantComponent
+    ],
+    imports: [
+        CommonModule,
+        EtudiantsRoutingModule
+    ]
 })
 export class EtudiantsModule { }

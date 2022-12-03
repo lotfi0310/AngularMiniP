@@ -1,0 +1,33 @@
+<div *ngIf="view=='U_List'">
+
+  <table class="table table-striped  ">
+    <thead class="table-dark">
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">nom</th>
+      <th scope="col">image</th>
+
+
+    </tr>
+    </thead>
+
+
+    <tbody>
+    <tr *ngFor="let item of listuniversite">
+      <td>{{item.idUniv}}</td>
+      <td>{{item.nomUniv}}</td>
+      <td>{{item.imageUniv}}</td>
+      <td><button (click)="univDetails(item)">Detail</button></td>
+      <td><button (click)="univUpdate(item)">Update</button></td>
+    </tr>
+
+    </tbody>
+  </table>
+<button (click)="addNew()">add new</button>
+
+</div>
+<app-university-detail
+  *ngIf="view=='U_Detail'"
+  (rediretToList)="rediretToList($event)"
+  [univjson]="univjson"
+></app-university-detail>
