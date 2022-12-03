@@ -12,8 +12,6 @@ export class UniversiteService {
   public univ : Universite;
   getalluniversities='displayUniversities'
   constructor(private httpClient :HttpClient) {
-    console.log(this.url_list);
-
   }
   getlistuniversities():Observable<Universite[]>{
     return this.httpClient.get<Universite[]>(`${this.url_list+this.getalluniversities}`);
@@ -26,7 +24,19 @@ export class UniversiteService {
   addUniversite(univ:Universite){
     return this.httpClient.post(this.url_list+'addUniversity',univ)
   }
+  updateUniversite(univ:Universite){
+    return this.httpClient.put(this.url_list+'updateUniversity',univ)
+  }
+  addDep(iduniv:number ,iddep:number){
+    // @ts-ignore
+    return this.httpClient.put(this.url_list+'assignuniversityToDepartment/'+iduniv +'/'+iddep);
 
+  }
+  univDelete(iduniv:number ){
+    // @ts-ignore
+    return this.httpClient.delete(this.url_list+'deleteUniv/'+iduniv );
+
+  }
   private univUp = new BehaviorSubject({}as Universite);
   univUp$ = this.univUp.asObservable();
   assignUniv(univUp:any){

@@ -29,7 +29,10 @@ if(this.Univ.idUniv==null){
       this.router.navigate(['universities/']);
     })
 }else{
-
+  this.universiteService.updateUniversite(this.Univ).subscribe(
+    data =>{
+      this.router.navigate(['universities/']);
+    })
 }
 
  }

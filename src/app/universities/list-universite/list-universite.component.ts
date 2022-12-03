@@ -45,4 +45,11 @@ rediretToList(type:any){
     this.universiteService.assignUniv(item);
     this.router.navigate(['universities/add']);
   }
+
+  univDelete(idUniv: any) {
+    this.universiteService.univDelete(idUniv).subscribe(
+      data =>{
+      })
+    window.location.reload();
+  }
 }

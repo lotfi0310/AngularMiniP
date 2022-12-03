@@ -9,6 +9,7 @@ import {ListUniversiteComponent} from "./list-universite/list-universite.compone
 import {FormUniversiteComponent} from "./form-universite/form-universite.component";
 import {NavUniversiteComponent} from "./nav-universite/nav-universite.component";
 import { UniversityDetailComponent } from './list-universite/university-detail/university-detail.component';
+import { AddDepComponent } from './add-dep/add-dep.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { UniversityDetailComponent } from './list-universite/university-detail/u
     ListUniversiteComponent,
     NavUniversiteComponent,
     FormUniversiteComponent,
-    UniversityDetailComponent
+    UniversityDetailComponent,
+    AddDepComponent
   ],
 
     imports: [
