@@ -5,7 +5,8 @@
 export const environment = {
   production: true,
   url: 'http://localhost:8089/SpringMVC/controllerEtudiant/',
-  urlDep: 'http://localhost:8089/SpringMVC/DepartmentController/'
+  urlDep: 'http://localhost:8089/SpringMVC/DepartmentController/',
+  urlEns: 'http://localhost:8089/SpringMVC/EnseignantController/'
 
   
 };

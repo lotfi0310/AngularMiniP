@@ -1,0 +1,68 @@
+
+<br><br><br><br><br>
+<h1>List of departments</h1>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Enseignant id</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">CIN</th>
+        <th scope="col">department</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listEnseignants">
+        <td>{{item.idEnseignant }}</td>
+        <td>{{item.nomEnseignant }}</td>
+        <td>{{item.prenomEnseignant }}</td>
+        <td>{{item.cin }}</td>
+        <td>{{item.departement.nomDepart }}</td>
+        <td> <a (click)="showBasicDialog(item)"> Edit </a>
+          | <a (click)="onDelete(item)">Delete  </a> </td>
+      </tr>
+    
+    </tbody>
+  </table>
+
+  <p-dialog header=" Edit Enseignant" [(visible)]="displayBasic" [style]="{width: '50vw'}" [baseZIndex]="10000">
+    <div class="form-group">
+      <label for="exampleFormControlInput1">First Name</label>
+      <input  type="text" class="form-control" id="exampleFormControlInput1" [(ngModel)]="ens.nomEnseignant" placeholder="First Name">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Last Name</label>
+        <input  type="text" class="form-control" id="exampleFormControlInput1" [(ngModel)]="ens.prenomEnseignant" placeholder="Last Name">
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">CIN</label>
+        <input  type="text" class="form-control" id="exampleFormControlInput1" [(ngModel)]="ens.cin" placeholder="cin">
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Select Department</label>
+      <select class="form-select" aria-label="Default select example"  [(ngModel)]="ens.departement">
+        <option *ngFor="let d of departments"   [ngValue]="d">{{d.nomDepart}}</option>
+      </select>
+    </div>
+      <ng-template pTemplate="footer">
+          <p-button icon="pi pi-check" (click)="updateEnseignant(ens)" label="Update" styleClass="p-button-text"></p-button>
+      </ng-template>
+  </p-dialog>
+
+<!--
+  <ng-template #mymodal let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Bootstrap Modal</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      This is example from ItSolutionStuff.com
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+    </div>
+  </ng-template>
+  -->
