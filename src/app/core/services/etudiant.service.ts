@@ -8,14 +8,33 @@ import { etudiants } from '../model/etudiants';
 })
 export class EtudiantService {
  public  url_apilist= environment.url ;
- getallquery='DisplayStudents' 
+ getallquery='DisplayStudents' ;
+ filter='existenceByName/';
   constructor(private httpClient :HttpClient) {
     console.log(this.url_apilist);
 
    }
   getEtudiantsListe():Observable<etudiants[]>{
     return this.httpClient.get<etudiants[]>(`${this.url_apilist+this.getallquery}`); 
-
   }
+  geEtudiantById(id : number):Observable <etudiants>{
+    return this.httpClient.get<etudiants>(this.url_apilist+'DisplayEtudiantById/'+id);
+  }
+  getEtudiantFiltredbyname(name:String):Observable<etudiants[]>{
+    return this.httpClient.get<etudiants[]>(`${this.url_apilist+this.filter+name}`); 
+  }
+  getEtudiantByDepartment(id:number):Observable<etudiants[]>{
+    return this.httpClient.get<etudiants[]>(`${'http://localhost:8089/SpringMVC/DepartmentController/GetListOfEtudiantsByDepartment/'+id}`);
+  }
+ addEtudiant(e:etudiants){
+    return this.httpClient.post(this.url_apilist+'ajouterEtudiant',e)
+}
+updateEtudiant(e:etudiants){
+  return this.httpClient.put(this.url_apilist+'updateStudentById',e)
+}
+deleteEtudiantByID(id:number ){
+   return this.httpClient.delete(this.url_apilist+'deletestudent/'+id);
+   console.log(id);
+}
  
 }
