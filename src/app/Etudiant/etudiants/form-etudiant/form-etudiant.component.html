@@ -47,8 +47,15 @@
     </div>
     <div class="form-group">
        <div>
-        <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Date naissance</label>
-        <input type="text" class="form-control form-control-sm" [(ngModel)]="etudiant.date_naissance" name="date_naissance" id="colFormLabelSm" placeholder="" required  minlength="10" maxlength="10" #da="ngModel">
+        
+        
+    <mat-form-field appearance="fill" style=" margin-top:10px ;">
+      <input matInput [matDatepicker]="picker" type="text" class="form-control form-control-sm" [(ngModel)]="etudiant.date_naissance" name="date_naissance" id="colFormLabelSm" placeholder="" required  minlength="10" maxlength="10" #da="ngModel">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
         <div class="alert alert-danger" *ngIf="da.invalid && da.touched">
          <div *ngIf="da.hasError('required')">
             you must pick you birth day

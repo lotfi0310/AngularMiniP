@@ -42,17 +42,29 @@ export class StatisticsComponent implements OnInit {
   
 
 }
-setMystyle(){
+setMystyle1(){
 
   let style= {
     'margin': '5vmin auto',
     'border-radius': '50%',
-    'width': '90vmin',
-    'height': '90vmin',
+    'width': '50vmin',
+    'height': '50vmin',
     'overflow': 'hidden',
     'background':'linear-gradient(to right, #2196f3 '+this.percentabove20+'%, transparent 50%),linear-gradient(to right, #2196f3 '+this.percentabove20+'%, #ffc107 '+this.percentunder20+'%)'
   };
 
+  return style;
+}
+setMystyle2(){
+
+  let style= {
+    'margin': '5vmin auto',
+    'border-radius': '50%',
+    'width': '50vmin',
+    'height': '50vmin',
+    'overflow': 'hidden',
+    'background':'linear-gradient(to right, #ffc107 '+this.percentabove20+'% , transparent 50%),linear-gradient(to right, #ffc107 '+this.percentunder20+'%, #2196f3 '+this.percentabove20+'%)'
+  };
   return style;
 }
 

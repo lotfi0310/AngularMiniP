@@ -14,6 +14,15 @@ import { DetailEtudiantComponent } from './detail-etudiant/detail-etudiant.compo
 import { ItemEtudiantComponent } from './item-etudiant/item-etudiant.component';
 import { DepartmentEtudiantComponent } from './department-etudiant/department-etudiant.component';
 import { ListetudiantbydepartmentComponent } from './listetudiantbydepartment/listetudiantbydepartment.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
 @NgModule({
   declarations: [
     EtudiantsComponent,
@@ -27,16 +36,22 @@ import { ListetudiantbydepartmentComponent } from './listetudiantbydepartment/li
     ItemEtudiantComponent,
     DepartmentEtudiantComponent,
     ListetudiantbydepartmentComponent
-
+  
 
   ],
   imports: [
     CommonModule,
     FormsModule,
     EtudiantsRoutingModule,
-    Ng2SearchPipeModule
-
-
+    Ng2SearchPipeModule,
+    MatNativeDateModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatToolbarModule,
+    MatDatepickerModule
   ]
 })
 export class EtudiantsModule { }

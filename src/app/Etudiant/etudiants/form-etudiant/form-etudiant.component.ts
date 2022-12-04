@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {  ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { url } from 'inspector';
 import { find } from 'rxjs';
 import { etudiants } from 'src/app/core/model/etudiants';
 import { EtudiantService } from 'src/app/core/services/etudiant.service';
-
-
-
 @Component({
   selector: 'app-form-etudiant',
   templateUrl: './form-etudiant.component.html',
@@ -17,8 +15,9 @@ export class FormEtudiantComponent implements OnInit {
   imageSrc: string;
   idEtudiant : number ; 
   action:string; 
-  constructor(private etudiantService: EtudiantService, private route: Router, private current : ActivatedRoute) {
+  constructor(private etudiantService: EtudiantService, private route: Router, private current : ActivatedRoute ) {
   
+
    }
 
   ngOnInit(): void {
