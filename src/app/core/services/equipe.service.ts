@@ -11,8 +11,8 @@ import { stades } from '../model/stade';
   providedIn: 'root'
 })
 export class EquipeService {
-  public url=environment.url+'/EquipeController/'
-  public urlStad=environment.url+'/StadeController/'
+  public url=environment.urlG+'/EquipeController/'
+  public urlStad=environment.urlG+'/StadeController/'
 
 
   public urlAff=this.url+'displayEquipes/'
