@@ -1,18 +1,48 @@
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">Equipes</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Ajouter</a>
-        </li>
-      </ul>
+    
       <form class="form-inline my-2 my-lg-0 ">
         
-        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a hero by id or name or country">      </form>
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="search"> &ensp;
+      </form> 
+    <a class="navbar-brand" routerLink="/equipes/stat">&ensp; Stats</a>
+      <a class="navbar-brand" routerLink="/equipes/favorites">My favorites</a>
+      <a class="navbar-brand" routerLink="/equipes/stade">Stades</a>
+      <a class="navbar-brand" routerLink="/equipes/listStatds">List stades</a>
+
+      
 
     </div>
-  </nav>
+  </nav> 
+  <body>
+    <br><br>
+    
+
+  <div class="row">
+    <div class="col-md-3" *ngFor="let p of listE| filter:searchText">
+   <!-- <app-product [product]="p"  (notification)="incrementLike($event)">
+    </app-product>  -->
+    <app-list-equipe [equipe]="p" (notification)="fav($event)"></app-list-equipe>
+</div>
+</div>
+<div
+  class="bg-image hover-overlay ripple shadow-1-strong rounded"
+  data-mdb-ripple-color="light"
+><br><br><br><br>
+ 
+  <div class="container2">
+    <img src="https://wallpaper.dog/large/5458515.jpg" class="w-100" alt="ucl" />
+    <div class="centered">
+    <h1>Add a new club</h1>
+    <h3>Click here</h3>
+    <a routerLink="/equipes/add"  class="btn btn-outline-light btn-lg" >New club</a>
+  </div>
+</div>
+</div>
+</body>

@@ -1,9 +1,8 @@
 export class etudiants{
      idEtudiant: number ;
-     nomE :String; 
      prenomE :String ; 
+     nomE :String; 
+     date_naissance : String ; 
      option : String ; 
-     date_naissance : String ;
-     
     
 }

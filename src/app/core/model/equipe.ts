@@ -3,5 +3,6 @@ export class Equipe{
     nomEquipe :String; 
     niveau :String ; 
     logo : String;
+    fav : number;
 
 }

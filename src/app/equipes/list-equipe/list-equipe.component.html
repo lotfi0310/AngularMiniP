@@ -1,4 +1,5 @@
 
+<!--
 <body>
     <br><br>
     <div class="search">
@@ -11,19 +12,29 @@
 
 <div class="col" *ngFor="let i of listE | filter:searchText">
 <div >
-    <div class="card-body"  [routerLink]="['/equipes/update',i.idEquipe]">
+  -->
+    <div class="card-body"  >
         <div
         class="bg-image hover-overlay ripple shadow-1-strong rounded"
         data-mdb-ripple-color="light">
-      <img src="{{i.logo}}"width = "50" height = "50" alt="logo">
+      <img [routerLink]="['/equipes/update',equipe.idEquipe]" src="{{equipe.logo}}"width = "50" height = "50" alt="logo">
       <a >
         <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
       </a>
     </div>
-  
-
-     <h4 class="card-text">{{i.nomEquipe}}<br><h6>({{i.niveau}})</h6></h4> 
+    <i class="bi bi-heart-fill"></i>  
+     <h4 class="card-text">{{equipe.nomEquipe}}<br><h6>({{equipe.niveau}})</h6></h4> 
+     <div *ngIf="equipe.fav==0; else elseBlock">
+     <button class="btn btn-sm" (click)="notifyParent()" >
+      <mat-icon>favorite_border</mat-icon>
+    </button>
+  </div>
+  <ng-template #elseBlock>
+    <mat-icon>favorite</mat-icon>
+  </ng-template>
     </div>
+  <!-- 
+
   </div>
 </div>
 </div>
@@ -44,3 +55,4 @@
 
 </div>
 </body>
+  -->
