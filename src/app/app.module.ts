@@ -14,8 +14,8 @@ import { ListDetailequipesComponent } from './detailequipes/list-detailequipes/l
   declarations: [
     AppComponent,
     SidebarComponent,
-    FormDetailequipesComponent,
-    ListDetailequipesComponent,
+   
+   
    
   ],
   imports: [

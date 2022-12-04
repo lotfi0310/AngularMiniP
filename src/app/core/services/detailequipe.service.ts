@@ -3,28 +3,35 @@ import { environment } from 'src/environments/environment';
 import { detailequipes } from '../model/detailequipe';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {BehaviorSubject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class DetailequipeService {
-  public  url_apilist= environment.url ;
-  public dp : detailequipes ; 
- getallquery='DdetailEquipe' 
-  constructor(private httpClient :HttpClient) { 
-    console.log(this.url_apilist);
+  public url=environment.url;
+  public urlAdd=this.url+'AddDetailEquipe' 
+public urlAff = this.url+'detailEquipes'
+public urlDel = this.url+'DeleteDetailEquipe/'
+public urlupdate= this.url+'UpdateDetailEquipe/'
+  constructor(private http :HttpClient) { 
+    
   }
-  getDetailEquipessListe():Observable<detailequipes[]>{
-    return this.httpClient.get<detailequipes[]>(`${this.url_apilist+this.getallquery}`); 
-  }
-  addDetailequipe(detailequipe:detailequipes) {
-    return this.httpClient.post(this.url_apilist+'addDetailequipe',detailequipe)
+  
+  addDetailequipe(d:detailequipes) {
+    console.log(this.urlAdd);
+    console.log(d);
+    return this.http.post(this.urlAdd,d) 
   }
 
-  private detailequipeUp = new BehaviorSubject({}as detailequipes);
-  detailequipeUp$ = this.detailequipeUp.asObservable();
-  assignUniv(univUp:any){
-    this.detailequipeUp.next(univUp);
+  getAlldetails(){
+    return this.http.get<detailequipes[]>(this.urlAff)
+  }
+  
+  deleteDepartment(id : any):Observable <any>{
+    console.log(id)
+    return this.http.delete<any>(this.urlDel+id);
+  }
+  updateDetailequipe(id:number,detailEquipes : any):Observable <any>{
+    return this.http.put<any>(this.urlupdate+id,detailEquipes);
   }
 }

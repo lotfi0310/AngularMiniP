@@ -10,48 +10,30 @@ import { FormControl,FormGroup,Validators } from '@angular/forms';
   styleUrls: ['./form-detailequipes.component.css']
 })
 export class FormDetailequipesComponent implements OnInit {
-  public detailequipe : detailequipes;
-  detailequipes: FormGroup;
-  error:boolean
-  constructor(private detailequipeservice: DetailequipeService, private router:Router,private currentRoute:ActivatedRoute) { }
+ public detailequipe : detailequipes;
+  constructor(private detailequipeservice: DetailequipeService, private route:Router,private currentRoute:ActivatedRoute) { 
 
-  ngOnInit(): void {
+  }
   
-this.createDetaiequipesForm();
-this.loadData();
-  }
-  public addDetailEquipes(){
-    this.detailequipe=this.detailequipes?.value;
- if(this.detailequipe.idDetailEquipe==null){
-   this.detailequipeservice.addDetailequipe(this.detailequipe).subscribe(
-     data =>{
-       this.router.navigate(['detailequipes/']);
-     })
- }else{
- 
- }
- 
-  }
 
-  createDetaiequipesForm(){
-    this.detailequipes=new FormGroup({
-      idDetailEquipe: new FormControl(""),
-      salle: new FormControl("", Validators.minLength(2)),
-      thematique : new FormControl("",Validators.required)
-    })
-  }
+    ngOnInit(): void {
+      this.detailequipe= new detailequipes();
+  
+    }
+ 
+     addDetailequipes(){
+     this.detailequipeservice.addDetailequipe(this.detailequipe).subscribe(
+      ()=>{  this.route.navigate(['/detailequipes'])}
+    
+    
+     )
+     }
+       
+   }
+  
+ 
+    
 
-  private loadData(){
-    this.detailequipeservice.detailequipeUp$.subscribe(
-      data =>{
-        if(data){
-          this.detailequipes.patchValue({
-            idDetailequipe:data.idDetailEquipe,
-            salle:data.salle,
-            thematique:data.thematique
-          })
-        }
-      }
-    )
-  }
-}
+
+
+
