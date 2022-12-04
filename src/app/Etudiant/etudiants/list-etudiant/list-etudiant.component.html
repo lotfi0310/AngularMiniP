@@ -1,23 +1,12 @@
+<div class="input-group" style="margin-bottom: 10px;">
+  <input type="search" class="form-control rounded"  placeholder="Search" name="search" [(ngModel)]="searchText"  aria-label="Search" aria-describedby="search-addon" autocomplete="on" />
+</div>
+<button  class="btn btn-outline-primary" style="margin-right: 2%;" [routerLink]="['/etudiants/add'] ">new Student</button>
+<button class=" btn btn-outline-primary"[routerLink]="['/etudiants/statistics']" role="tab" aria-controls="nav-home" aria-selected="true">Statistics</button>
 
-<table class="table table-striped  ">
-    <thead class="table-dark">
-      <tr>
-        <th scope="col">id</th>
-        <th scope="col">nom</th>
-        <th scope="col">Prenom </th>
-        <th scope="col">Date Naissance</th>
-        <th scope="col">option</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of listetudiants">
-        <td>{{item.idEtudiant}}</td>
-        <td>{{item.nomE}}</td>
-        <td>{{item.prenomE}}</td>
-        <td>{{item.option}}</td>
-        <td>{{item.date_naissance}}</td>
-      </tr>
-    
-    </tbody>
-  </table>
+<div class="container col " style="  margin-top :10px;display: flex; flex-direction: column ;justify-content: space-beetween; border-radius: 5px;
+ " *ngFor=" let item of listetudiants |  filter:searchText ; let i=index" >
+<app-item-etudiant [etudiant]="item" (deleteEtudiant)="DeleteEtudiant(item)"></app-item-etudiant>
+
+</div>
 
