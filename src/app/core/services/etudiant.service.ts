@@ -15,13 +15,13 @@ export class EtudiantService {
 
    }
   getEtudiantsListe():Observable<etudiants[]>{
-    return this.httpClient.get<etudiants[]>(`${this.url_apilist+this.getallquery}`); 
+    return this.httpClient.get<etudiants[]>(`${this.url_apilist+this.getallquery}`);
   }
   geEtudiantById(id : number):Observable <etudiants>{
     return this.httpClient.get<etudiants>(this.url_apilist+'DisplayEtudiantById/'+id);
   }
   getEtudiantFiltredbyname(name:String):Observable<etudiants[]>{
-    return this.httpClient.get<etudiants[]>(`${this.url_apilist+this.filter+name}`); 
+    return this.httpClient.get<etudiants[]>(`${this.url_apilist+this.filter+name}`);
   }
   getEtudiantByDepartment(id:number):Observable<etudiants[]>{
     return this.httpClient.get<etudiants[]>(`${'http://localhost:8089/SpringMVC/DepartmentController/GetListOfEtudiantsByDepartment/'+id}`);
@@ -36,5 +36,5 @@ deleteEtudiantByID(id:number ){
    return this.httpClient.delete(this.url_apilist+'deletestudent/'+id);
    console.log(id);
 }
- 
+
 }

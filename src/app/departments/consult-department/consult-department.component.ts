@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,ViewChild} from '@angular/core';
 import { Department } from 'src/app/core/model/department';
 import { DepartmentsService } from 'src/app/core/services/departments.service';
 import { PrimeNGConfig } from 'primeng/api';
 import { EnseignantService } from 'src/app/core/services/enseignant.service';
 import { Enseignant } from 'src/app/core/model/Enseignant';
+import { Table } from 'primeng/table';
 
 @Component({
   selector: 'app-consult-department',
@@ -14,28 +15,55 @@ export class ConsultDepartmentComponent implements OnInit {
   closeResult: string = '';
   displayBasic: boolean = false;
   displayBasic1 :boolean = false;
+  displayDep :boolean = false;
   dep : Department ;
   public listDepartments :Department[];
   listEnseignant : Enseignant[];
+  loading: boolean = true;
+  cols : any []
+  hoveView = false;
+  hoveEdit = false ;
+  hovDelete = false;
+  @ViewChild('dt') table: Table;
+
   /*,private modalService: NgbModal*/
   constructor(private departmentService : DepartmentsService,private primengConfig: PrimeNGConfig,private enseignantService : EnseignantService) { }
 
   ngOnInit(): void {
+    this.cols = [
+      { field: 'Department ID', header: 'Department ID' },
+      { field: 'Department Name', header: 'Department Name' },
+  ];
     this.dep = new Department();
     this.primengConfig.ripple = true;
 
     this.departmentService.getDepartments().subscribe(
       data =>{
       this.listDepartments=data;
+      this.loading = false;
+
     })
   }
   onDelete(item : Department){
     this.departmentService.deleteDepartment(item.idDepart).subscribe(
       data =>{
       console.log(data)
+      this.listDepartments.splice(this.findIndexById(item.idDepart));
     })
   }
+  openDepartment(){
+    this.displayDep = true;
+    this.dep = new Department();
 
+  }
+  addDepartment(){
+    this.displayDep = false;
+    this.departmentService.addDepartment({"nomDepart":this.dep.nomDepart}).subscribe(
+      data =>{
+      console.log(data)
+      this.listDepartments.push(data);
+    })
+  }
 
   showBasicDialog(item :any) {
     this.displayBasic = true;
@@ -82,20 +110,14 @@ findIndexById(id: number): number {
 
   return index;
 }
- /*open(content:any) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
-  }
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return  `with: ${reason}`;
-    }
-  }*/
+applyFilterGlobal(event :any , stringVal:any) {
+  console.log((event.target as HTMLInputElement).value)
+
+  this.table.filterGlobal((event.target as HTMLInputElement).value, stringVal);
+}
+filterGlobal(event : any , ch : any){
+  console.log(event.target.value)
+  this.table.filterGlobal(event.target.value,'contains');
+
+}
 }
