@@ -31,7 +31,7 @@ public urlupdate= this.url+'UpdateDetailEquipe/'
     console.log(id)
     return this.http.delete<any>(this.urlDel+id);
   }
-  updateDetailequipe(id:number,detailEquipes : any):Observable <any>{
-    return this.http.put<any>(this.urlupdate+id,detailEquipes);
+  updateDetailequipe(detailEquipes : detailequipes):Observable <any>{
+    return this.http.put<any>(this.urlupdate,detailEquipes);
   }
 }

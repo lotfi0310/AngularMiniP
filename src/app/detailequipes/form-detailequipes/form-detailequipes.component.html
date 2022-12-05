@@ -11,6 +11,9 @@
           <input  type="number" name="salle" [(ngModel)]="detailequipe.salle"
           class="form-control" required minlength="3"
             #n="ngModel">
+            <div class="alert alert-danger" *ngIf="n.invalid && n.touched">
+              this field is required
+            </div>
        </div>
        
         <div class="form-group col-md-6">
@@ -22,9 +25,9 @@
             this field is required
           </div>
         </div>
-        <br>
+        <br> 
         <div class="form-group">
-          <button class=" btn btn-outline-primary"style="margin:50px" type="button" style="margin-top:4%"  (click)="addDetailequipes()" >save</button>
+          <button [disabled]="f.invalid"  class=" btn btn-outline-primary"style="margin:50px" type="button" style="margin-top:4%"  (click)="addDetailequipes()" >save</button>
       </div>
       </form>
     </div>

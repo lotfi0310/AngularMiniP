@@ -12,23 +12,24 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>Salle</th>
-                    <th>Thematique</th>
+                    <th (click)="sort('salle')">Salle <i class="fa fa-sort"> </i></th>
+                    <th (click)="sort('thematique')">Thematique <i class="fa fa-sort"> </i>  </th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let i of listdetailequipes | filter:searchText" class="text-center">
+                <tr *ngFor="let i of listdetailequipes | filter:searchText| paginate:{itemsPerPage :4, currentPage: p} ;let index = index"class="text-center">
                     <td>{{i.salle}}</td>
                     <td>{{i.thematique}}</td>
                     <td>
                         <button (click)="onDelete(i)" class="btn btn-warning">delete</button>
-                        <button (click)=" updateDepartment(detail)" class="btn btn-warning">edit</button>
+                        <button (click)=" updateDepartment(index)" class="btn btn-warning">edit</button>
 
 
                     </td>
                 </tr>
             </tbody>
         </table>
+        <pagination-controls (pageChange)="p= $event"> </pagination-controls>
     </div>
 </div>
 <button  class="btn btn-outline-primary" style="margin-right: 2%;" [routerLink]="['/detailequipes/form'] ">new detail equipe</button>

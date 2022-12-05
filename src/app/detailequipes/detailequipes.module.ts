@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
+import { FormsModule, ReactiveFormsModule ,FormControl} from '@angular/forms';
 import { DetailequipesRoutingModule } from './detailequipes-routing.module';
 import { DetailequipesComponent } from './detailequipes.component';
 import { FormDetailequipesComponent } from './form-detailequipes/form-detailequipes.component';
 import { ListDetailequipesComponent } from './list-detailequipes/list-detailequipes.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { UpdateDetailsComponent } from './update-details/update-details.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { OrderModule } from 'ngx-order-pipe';
 
 
 
@@ -15,7 +16,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
   declarations: [
     DetailequipesComponent,
     FormDetailequipesComponent,
-    ListDetailequipesComponent
+    ListDetailequipesComponent,
+    UpdateDetailsComponent
   
   ],
   imports: [
@@ -23,6 +25,9 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     DetailequipesRoutingModule,
     FormsModule,
     Ng2SearchPipeModule,
+    NgxPaginationModule,
+    OrderModule,
+    ReactiveFormsModule
 
   ]
 })
