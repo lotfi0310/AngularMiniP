@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule ,FormControl} from '@angular/forms';
 import { DetailequipesRoutingModule } from './detailequipes-routing.module';
 import { DetailequipesComponent } from './detailequipes.component';
+import { FormsModule } from '@angular/forms';
+import {  ReactiveFormsModule ,FormControl} from '@angular/forms';
 import { FormDetailequipesComponent } from './form-detailequipes/form-detailequipes.component';
 import { ListDetailequipesComponent } from './list-detailequipes/list-detailequipes.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';

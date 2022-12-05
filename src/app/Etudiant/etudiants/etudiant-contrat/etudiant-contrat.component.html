@@ -1,0 +1,24 @@
+
+<table class="table" >
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">date debut contrat</th>
+        <th scope="col">date fin contrat</th>
+        <th scope="col">Specialite</th>
+        <th scope="col">Archive</th>
+        <th scope="col">Montant</th>
+
+      </tr>
+    </thead>
+    <tbody  >
+      <tr *ngFor="let c of contratetudiant.contrat ">
+        <td>{{c.dateDebutContrat}}</td>
+        <td>{{c.dateFinContrat}}</td>
+        <td>{{c.specialite}}</td>
+        <td>{{c.archive}}</td>
+        <td>{{c.montantContrat}}</td>
+      
+      </tr>
+     
+    </tbody>
+  </table>
