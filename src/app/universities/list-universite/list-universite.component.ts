@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Universite} from "../../core/model/universite";
 import {UniversiteService} from "../../core/services/universite.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 @Component({
   selector: 'app-list-universite',
   templateUrl: './list-universite.component.html',
@@ -9,6 +10,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class ListUniversiteComponent implements OnInit {
   view:string;
+  title = 'Angular Search Using ng2-search-filter';
+  searchText:any;
   public listuniversite :Universite[];
   public univjson: any;
   constructor(private universiteService : UniversiteService,
@@ -44,5 +47,12 @@ rediretToList(type:any){
   univUpdate(item:any) {
     this.universiteService.assignUniv(item);
     this.router.navigate(['universities/add']);
+  }
+
+  univDelete(idUniv: any) {
+    this.universiteService.univDelete(idUniv).subscribe(
+      data =>{
+      })
+    window.location.reload();
   }
 }

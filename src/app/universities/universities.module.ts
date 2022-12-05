@@ -9,6 +9,8 @@ import {ListUniversiteComponent} from "./list-universite/list-universite.compone
 import {FormUniversiteComponent} from "./form-universite/form-universite.component";
 import {NavUniversiteComponent} from "./nav-universite/nav-universite.component";
 import { UniversityDetailComponent } from './list-universite/university-detail/university-detail.component';
+import { AddDepComponent } from './add-dep/add-dep.component';
+import {Ng2SearchPipeModule} from "ng2-search-filter";
 
 
 @NgModule({
@@ -17,14 +19,16 @@ import { UniversityDetailComponent } from './list-universite/university-detail/u
     ListUniversiteComponent,
     NavUniversiteComponent,
     FormUniversiteComponent,
-    UniversityDetailComponent
+    UniversityDetailComponent,
+    AddDepComponent
   ],
 
     imports: [
         CommonModule,
         UniversitiesRoutingModule,
         FormsModule,
-      ReactiveFormsModule
+        ReactiveFormsModule,
+        Ng2SearchPipeModule
     ]
 })
 export class UniversitiesModule { }

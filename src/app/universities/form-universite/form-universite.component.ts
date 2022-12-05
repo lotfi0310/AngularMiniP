@@ -11,6 +11,8 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class FormUniversiteComponent implements OnInit {
   public Univ: Universite;
+  imageSrc: string;
+
   universite : FormGroup;
   error : boolean;
   constructor(private universiteService: UniversiteService,
@@ -29,16 +31,42 @@ if(this.Univ.idUniv==null){
       this.router.navigate(['universities/']);
     })
 }else{
-
+  this.universiteService.updateUniversite(this.Univ).subscribe(
+    data =>{
+      this.router.navigate(['universities/']);
+    })
 }
 
  }
 
+  onFileChange(event:any) {
+    const reader = new FileReader();
+    if(event.target.files && event.target.files.length) {
+      const [file] = event.target.files;
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        this.imageSrc = reader.result as string;
+        console.log(reader.result);
+      };
+    }
+  }
+
+
   createUniversiteForm(){
+
+    /*this.Univ.imageUniv=this.imageSrc;*/
     this.universite=new FormGroup({
       idUniv: new FormControl(""),
       nomUniv: new FormControl("", Validators.minLength(2)),
+      imageUniv : new FormControl("",Validators.required),
+
+
+
+/*
       imageUniv : new FormControl("",Validators.required)
+*/
+
+
     })
   }
 

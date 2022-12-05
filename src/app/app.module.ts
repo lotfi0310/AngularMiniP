@@ -10,6 +10,7 @@ import { NavUniversiteComponent } from './universities/nav-universite/nav-univer
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import {UniversitiesModule} from "./universities/universities.module";
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {UniversitiesModule} from "./universities/universities.module";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   exports: [
