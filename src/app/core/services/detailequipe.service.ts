@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DetailequipeService {
-  public url=environment.url;
+  public url=environment.urldet;
   public urlAdd=this.url+'AddDetailEquipe' 
 public urlAff = this.url+'detailEquipes'
 public urlDel = this.url+'DeleteDetailEquipe/'

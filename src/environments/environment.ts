@@ -9,7 +9,7 @@ export const environment = {
   url: 'http://localhost:8089/SpringMVC/controllerEtudiant/',
   urlDep: 'http://localhost:8089/SpringMVC/DepartmentController/',
   urlEns: 'http://localhost:8089/SpringMVC/EnseignantController/',
-  urlCont: 'http://localhost:8089/SpringMVC'
+  urlCont: 'http://localhost:8089/SpringMVC',
   urldet: 'http://localhost:8081/SpringMVC/DetailEquipeController/'
 
 };
