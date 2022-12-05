@@ -1,0 +1,37 @@
+
+<div class="container container-fluid"style="padding-left: 50px">
+
+  <div class="row " >
+    <p style="display: flex;
+justify-content: center; padding-left:45% ;">Age_Etudiant </p>
+<div class=" row">
+  <div class="col  " style="flex-direction:row ;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" class="col col-sm-6 " height="16"  style=" color:#ffc107;" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+      <circle cx="8" cy="8" r="8"/>
+    </svg>
+    <p class="col col-sm-6" style="color: #ffc107;"> age inferieur a 20<br><br>   {{countageunder20}} :Student       {{percentunder20}}% </p>
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" class="col col-sm-6 " height="16"  style=" color:#2196f3;" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+      <circle cx="8" cy="8" r="8"/>
+    </svg>
+    <p class="col col-sm-6" style="color: #2196f3;"> age superieur a 20<br><br>{{countageabove20}}:Student      {{percentabove20}}% </p>
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" class="col col-sm-6 " height="16"  style=" color:#ff5900;" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+      <circle cx="8" cy="8" r="8"/>
+    </svg>
+    <p class="col col-sm-6" style="color: #ff5900;">nombre des etudiants/{{countageabove20+countageunder20}}:Student</p>
+
+  </div>
+
+<div class="col" style="display: flex; justify-content:center">
+  <div class="pie"   *ngIf="percentabove20 > percentunder20 || percentabove20==percentunder20" [ngStyle]='setMystyle1()' >
+    
+  </div>
+
+  <div class="pie"  *ngIf="percentunder20 > percentabove20" [ngStyle]='setMystyle2()' >
+   
+  </div>
+</div>
+ 
+</div>
+
+</div>
+</div>

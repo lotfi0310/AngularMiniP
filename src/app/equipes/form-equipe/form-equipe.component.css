@@ -1,0 +1,11 @@
+body {background-color: 
+    #000040 ;
+    color: white;
+}
+.Container2 button{ /* You Can Name it what you want*/
+    margin-right:16px;
+    }
+    .Container input:last-child{
+    margin-right:0px;
+    /*so the last one dont push the div thas giving the space only between the inputs*/
+    }
