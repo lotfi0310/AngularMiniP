@@ -14,22 +14,21 @@ export class DepartmentEtudiantComponent implements OnInit {
  id :number; 
  etudiant: etudiants; 
  departments:Department[];
+ action :string;
   constructor(private etudserv :EtudiantService ,private current :ActivatedRoute,private depserv:DepartmentsService) { 
   }
 
   ngOnInit(): void {
- this.id=this.current.snapshot.params['idEtudiant'];
-    this.etudserv.geEtudiantById(this.id).subscribe((data)=>{this.etudiant=data});
-    console.log(this.etudiant);
-}
 
-
-affecterEtudiantToDepartment(){
-this.depserv.getDepartments().subscribe((data:Department[])=>{
-  this.departments=data;
-  console.log(this.departments)
-})
-}
-
-
-}
+      this.id=this.current.snapshot.params['idEtudiant'];
+        this.etudserv.geEtudiantById(this.id).subscribe((data)=>{this.etudiant=data});
+        console.log(this.etudiant);
+    
+      this.depserv.getDepartments().subscribe((data)=>{
+        this.departments=data;
+        console.log(this.departments);
+      });
+    }
+      
+    }
+ 
