@@ -17,8 +17,18 @@
             
           </tr>
         </tbody>
+        
       </table>
-</div>
+    </div>
+    <button class="btn btn-warning" type="button"   (click)="affecterEtudiantToDepartment()"> Add To  a Department 
+    </button>
+       <div *ngFor="let d of departments">
+        <p>{{d.idDepart}}</p>
+       <p>{{d.nomDepart}}</p>
+       </div>
+
+       
+      
 
 
 

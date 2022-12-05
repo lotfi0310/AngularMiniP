@@ -24,6 +24,15 @@ export class NavEquipeComponent implements OnInit {
       }
     )
   }
+  refresh(){
+    this.equipeService.getAllProduct().subscribe(
+      (X:Equipe[])=>{
+        this.listE = X;
+        console.log("ojn",this.listE)
+
+      }
+    )
+  }
   add(){
     this.router.navigate(['/equipes/add']);
    // {FormEquipeComponent};
@@ -32,7 +41,9 @@ export class NavEquipeComponent implements OnInit {
   fav(id: number){
    console.log("fav");
    console.log("id c h",id)
-   this.equipeService.fav(id).subscribe(
+   this.equipeService.fav(id).subscribe( ()=>{   
+    this.refresh();
+  }
   )
   }
 }
