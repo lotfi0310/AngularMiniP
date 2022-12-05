@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Department } from 'src/app/core/model/department';
 import { etudiants } from 'src/app/core/model/etudiants';
+import { DepartmentsService } from 'src/app/core/services/departments.service';
 import { EtudiantService } from 'src/app/core/services/etudiant.service';
 
 @Component({
@@ -11,8 +13,8 @@ import { EtudiantService } from 'src/app/core/services/etudiant.service';
 export class DepartmentEtudiantComponent implements OnInit {
  id :number; 
  etudiant: etudiants; 
- 
-  constructor(private etudserv :EtudiantService ,private current :ActivatedRoute) { 
+ departments:Department[];
+  constructor(private etudserv :EtudiantService ,private current :ActivatedRoute,private depserv:DepartmentsService) { 
   }
 
   ngOnInit(): void {
@@ -20,6 +22,14 @@ export class DepartmentEtudiantComponent implements OnInit {
     this.etudserv.geEtudiantById(this.id).subscribe((data)=>{this.etudiant=data});
     console.log(this.etudiant);
 }
- 
+
+
+affecterEtudiantToDepartment(){
+this.depserv.getDepartments().subscribe((data:Department[])=>{
+  this.departments=data;
+  console.log(this.departments)
+})
+}
+
 
 }
