@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { StatisticsService } from 'src/app/core/services/statistics.service';
 
 @Component({
@@ -8,33 +9,36 @@ import { StatisticsService } from 'src/app/core/services/statistics.service';
 })
 export class StatisticsComponent implements OnInit {
   listages:number[];
-  countageunder20:number; 
-  countageabove20:number; 
-  percentunder20 :number; 
-  percentabove20:number; 
-  constructor(private statservice:StatisticsService) {
-    this.countageabove20=0;
-    this.countageunder20=0;
-    this.percentunder20=0;
-   this.percentabove20=0;
+  criteria:number;
+  countageundercriteria:number; 
+  countageabovecriteria:number; 
+  percentundercriteria :number; 
+  percentabovecriteria:number; 
+  constructor(private statservice:StatisticsService,private current:ActivatedRoute) {
+    this.countageabovecriteria=0;
+    this.countageundercriteria=0;
+    this.percentundercriteria=0;
+   this.percentabovecriteria=0;
    }
 
   ngOnInit(): void {
    this.statservice.getEtudiantsAges().subscribe((data)=>{
     this.listages=data;
+    this.criteria=this.current.snapshot.params['critereage'];
+    console.log(this.criteria);
     console.log(this.listages)
     for ( let i in this.listages){
-      if(this.listages[i]> 20){
+      if(this.listages[i]> this.criteria){
         console.log(this.listages[i]);
-        this.countageabove20++;
-        this.percentabove20=(this.countageabove20/this.listages.length)*100;
+        this.countageabovecriteria++;
+        this.percentabovecriteria=(this.countageabovecriteria/this.listages.length)*100;
 
       }
-     if (this.listages[i] < 20){
+     if (this.listages[i] < this.criteria){
         console.log(this.listages[i])
-        this.countageunder20++;
+        this.countageundercriteria++;
 
-        this.percentunder20=(this.countageunder20/this.listages.length)*100
+        this.percentundercriteria=(this.countageundercriteria/this.listages.length)*100
 
       }
     }
@@ -50,7 +54,7 @@ setMystyle1(){
     'width': '50vmin',
     'height': '50vmin',
     'overflow': 'hidden',
-    'background':'linear-gradient(to right, #2196f3 '+this.percentabove20+'%, transparent 50%),linear-gradient(to right, #2196f3 '+this.percentabove20+'%, #ffc107 '+this.percentunder20+'%)'
+    'background':'linear-gradient(to right, #2196f3 '+this.percentabovecriteria+'%, transparent 50%),linear-gradient(to right, #2196f3 '+this.percentabovecriteria+'%, #ffc107 '+this.percentundercriteria+'%)'
   };
 
   return style;
@@ -63,7 +67,7 @@ setMystyle2(){
     'width': '50vmin',
     'height': '50vmin',
     'overflow': 'hidden',
-    'background':'linear-gradient(to right, #ffc107 '+this.percentabove20+'% , transparent 50%),linear-gradient(to right, #ffc107 '+this.percentunder20+'%, #2196f3 '+this.percentabove20+'%)'
+    'background':'linear-gradient(to right, #ffc107 '+this.percentabovecriteria+'% , transparent 50%),linear-gradient(to right, #ffc107 '+this.percentundercriteria+'%, #2196f3 '+this.percentabovecriteria+'%)'
   };
   return style;
 }

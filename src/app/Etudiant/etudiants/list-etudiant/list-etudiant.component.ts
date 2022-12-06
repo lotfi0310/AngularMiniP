@@ -17,9 +17,10 @@ export class ListEtudiantComponent implements OnInit {
   name :String;
   searchText: any; 
   age:number; 
+  critereage :number;
   
   constructor(private etudiantService : EtudiantService,private route:Router,private current:ActivatedRoute) {
-    
+    this.critereage=0;
    }
 
   ngOnInit(): void {

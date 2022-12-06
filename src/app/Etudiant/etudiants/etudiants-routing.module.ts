@@ -18,7 +18,7 @@ const routes: Routes = [{ path:'',component: EtudiantsComponent,children:[
   {path:'update/:idEtudiant',component:FormEtudiantComponent},
   {path:'etudiantequipes/:idEtudiant',component:EtudiantequipesComponent},
   {path:'etudiant-contrat/:idEtudiant',component:EtudiantContratComponent},
-  {path:'statistics',component:StatisticsComponent},
+  {path:'statistics/:critereage',component:StatisticsComponent},
   {path:'app-detail-etudiant/:idEtudiant',component:DetailEtudiantComponent}, 
   {path:'department-etudiant/:idEtudiant',component:DepartmentEtudiantComponent},
   {path:'listetudiantbydepartment/:etudiant.departement.idDepart',component:ListetudiantbydepartmentComponent},
