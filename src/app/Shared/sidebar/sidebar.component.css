@@ -29,6 +29,9 @@ body{
    border-left: 10px solid #287bff;
    transition: 0.5s;
    overflow: hidden;
+   border-bottom-right-radius: 30px;
+   border-top-right-radius: 30px;
+
 }
 
 .navigation ul{
@@ -36,6 +39,7 @@ body{
     top: 0;
     left: 0;
     width: 100%;
+    
 }
 .navigation ul li{
     position: relative;
