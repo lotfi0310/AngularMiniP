@@ -10,9 +10,10 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./form-universite.component.css']
 })
 export class FormUniversiteComponent implements OnInit {
+  unamePattern = "^[a-z0-9_-]{8,15}$";
   public Univ: Universite;
-  imageSrc: string;
-
+  /*imageSrc: string;*/
+url : any;
   universite : FormGroup;
   error : boolean;
   constructor(private universiteService: UniversiteService,
@@ -39,26 +40,42 @@ if(this.Univ.idUniv==null){
 
  }
 
-  onFileChange(event:any) {
+ /* onFileChange(event:any) {
     const reader = new FileReader();
     if(event.target.files && event.target.files.length) {
       const [file] = event.target.files;
       reader.readAsDataURL(file);
       reader.onload = () => {
-        this.imageSrc = reader.result as string;
+       this.Univ.imageUniv = reader.result as string;
         console.log(reader.result);
       };
     }
-  }
+  }*/
+
+
+  /*readUrl(event:any) {
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = (event: ProgressEvent) => {
+        this.url = (<FileReader>event.target).result;
+      }
+
+      reader.readAsDataURL(event.target.files[0]);
+    }
+  }*/
+
+
 
 
   createUniversiteForm(){
-
     /*this.Univ.imageUniv=this.imageSrc;*/
     this.universite=new FormGroup({
       idUniv: new FormControl(""),
-      nomUniv: new FormControl("", Validators.minLength(2)),
+      nomUniv: new FormControl("", Validators.minLength(5)),
+      /*nomUniv: new FormControl("", Validators.pattern(this.unamePattern)),*/
       imageUniv : new FormControl("",Validators.required),
+
 
 
 

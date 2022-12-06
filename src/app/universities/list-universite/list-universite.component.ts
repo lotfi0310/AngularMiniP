@@ -12,8 +12,10 @@ export class ListUniversiteComponent implements OnInit {
   view:string;
   title = 'Angular Search Using ng2-search-filter';
   searchText:any;
+  p: number =1;
   public listuniversite :Universite[];
   public univjson: any;
+  url:any;
   constructor(private universiteService : UniversiteService,
               private router:Router) { }
 
@@ -34,6 +36,20 @@ public addNew(){
 }
 
 
+
+
+  /*readUrl(event:any) {
+
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = (event: ProgressEvent) => {
+        this.url = (<FileReader>event.target).result;
+      }
+
+      reader.readAsDataURL(event.target.files[0]);
+    }
+  }*/
 
 public  univDetails(item: any){
   this.univjson=item;
