@@ -23,6 +23,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDialog } from '@angular/material/dialog';
+import { ListDepComponent } from './list-dep/list-dep.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { MatDialog } from '@angular/material/dialog';
     DetailEtudiantComponent,
     ItemEtudiantComponent,
     DepartmentEtudiantComponent,
-    ListetudiantbydepartmentComponent
+    ListetudiantbydepartmentComponent,
+    ListDepComponent
   
 
   ],

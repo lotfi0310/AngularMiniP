@@ -7,6 +7,7 @@ import { EtudiantContratComponent } from './etudiant-contrat/etudiant-contrat.co
 import { EtudiantequipesComponent } from './etudiantequipes/etudiantequipes.component';
 import { EtudiantsComponent } from './etudiants.component';
 import { FormEtudiantComponent } from './form-etudiant/form-etudiant.component';
+import { ListDepComponent } from './list-dep/list-dep.component';
 import { ListEtudiantComponent } from './list-etudiant/list-etudiant.component';
 import { ListetudiantbydepartmentComponent } from './listetudiantbydepartment/listetudiantbydepartment.component';
 import { StatisticsComponent } from './statistics/statistics.component';
@@ -20,7 +21,9 @@ const routes: Routes = [{ path:'',component: EtudiantsComponent,children:[
   {path:'statistics',component:StatisticsComponent},
   {path:'app-detail-etudiant/:idEtudiant',component:DetailEtudiantComponent}, 
   {path:'department-etudiant/:idEtudiant',component:DepartmentEtudiantComponent},
-  {path:'listetudiantbydepartment/:etudiant.departement.idDepart',component:ListetudiantbydepartmentComponent}
+  {path:'listetudiantbydepartment/:etudiant.departement.idDepart',component:ListetudiantbydepartmentComponent},
+  {path:'listdep/:id',component:ListDepComponent}
+
 ] }
 
 ];

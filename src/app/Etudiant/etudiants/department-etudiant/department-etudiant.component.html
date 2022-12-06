@@ -1,4 +1,5 @@
-
+<div class="container " style="padding:50px">
+<td > <button type="button"  class="btn btn-outline-warning" style="margin-bottom:10px ;" [routerLink]="['/etudiants/listdep',id]" >Add student to department</button></td>
 
 <div class="container"  >
     <table class="table"  >
@@ -14,40 +15,14 @@
           <tr >
             <td>{{etudiant.departement.idDepart}}</td>
             <td>{{etudiant.departement.nomDepart}}</td>
+             
             <td *ngIf="etudiant.departement.idDepart"><button type="button" class="btn btn-outline-primary" [routerLink]="['/etudiants/listetudiantbydepartment',etudiant.departement.idDepart]" >others students in this department:{{etudiant.departement.nomDepart}} </button></td>
-            <td *ngIf="!etudiant.departement.idDepart"><button type="button" class="btn btn-outline-primary"  >Add student</button></td>
+
           </tr>
         </tbody>
         
       </table>
+
     </div>
-    <div class="container" [ngModel]="action" *ngIf="action=='getalldep'">
-    <table class="table"  >
-        <thead class="thead-dark">
 
-          <tr>
-            <th scope="col">ID Department</th>
-            <th scope="col">nom Department</th>
-          </tr>
-        </thead>
-        <tbody  >
-          <tr *ngFor="let d of departments">
-            <td>{{d.idDepart}}</td>
-            <td>{{d.nomDepart}}</td>
-            
-          </tr>
-        </tbody>
-        
-      </table>
-    </div>
-    
-
-
-    
-
-
-       
-      
-
-
-
+  </div>
