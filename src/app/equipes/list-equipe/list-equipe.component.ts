@@ -3,6 +3,7 @@ import { EquipeService } from 'src/app/core/services/equipe.service';
 import { BrowserModule } from "@angular/platform-browser";
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { Equipe } from 'src/app/core/model/equipe';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-list-equipe',
   templateUrl: './list-equipe.component.html',
@@ -10,14 +11,21 @@ import { Equipe } from 'src/app/core/model/equipe';
 })
 export class ListEquipeComponent implements OnInit {
   @Input() equipe: Equipe;
+  @Input() a: Equipe;
+
   @Output() notification = new EventEmitter();
   searchText: any;
-  constructor() { }
+  constructor(    private route: ActivatedRoute
+    ) { }
   ngOnInit(): void {
 
   }
-  notifyParent(){
-    this.notification.emit(this.equipe.idEquipe )
+  notifyParent(a : number){
+  
+      this.notification.emit( a
+        )
+        this.notification.emit( this.equipe.idEquipe 
+          )
   }
 
 }

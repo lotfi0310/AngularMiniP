@@ -5,9 +5,15 @@ import { AddEnseignantComponent } from './add-enseignant/add-enseignant.componen
 import { ConsultEnseignantComponent } from './consult-enseignant/consult-enseignant.component';
 import { EnseignantRoutingModule } from './enseignant-routing.module';
 import { FormsModule } from '@angular/forms';
-import { DialogModule } from 'primeng/dialog';
-import { ButtonModule } from 'primeng/button';
+import {TableModule} from 'primeng/table';
 
+import {TreeTableModule} from 'primeng/treetable';
+import {ButtonModule} from 'primeng/button';
+import {DialogModule} from 'primeng/dialog';
+import {MultiSelectModule} from 'primeng/multiselect';
+import {InputTextModule} from 'primeng/inputtext';
+import {ToastModule} from 'primeng/toast';
+import {ContextMenuModule} from 'primeng/contextmenu';
 
 
 @NgModule({
@@ -21,7 +27,15 @@ import { ButtonModule } from 'primeng/button';
     EnseignantRoutingModule,
     FormsModule,
     DialogModule,
-    ButtonModule
+    ButtonModule,
+    TreeTableModule,
+    ToastModule,
+    DialogModule,
+    ButtonModule,
+    MultiSelectModule,
+    InputTextModule,
+    ContextMenuModule,
+    TableModule
   ]
 })
 export class EnseignantModule { }

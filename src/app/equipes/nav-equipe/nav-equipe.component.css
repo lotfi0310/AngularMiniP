@@ -11,10 +11,6 @@ img {
     margin: 3px;
     padding: 3px;
 }
-body {background-color: 
-    #000040 ;
-    color: white;
-}
 .search {
   max-width: 500px;
   padding-bottom: 50px;
@@ -28,7 +24,6 @@ body {background-color:
 .container2 {
     position: relative;
     text-align: center;
-    color: white;
   }
   
   /* Bottom left text */
@@ -66,3 +61,20 @@ body {background-color:
     left: 50%;
     transform: translate(-50%, -50%);
   }
+  p {
+    font-family: Lato;
+  }
+  .advise
+  {
+    visibility:collapse;
+    position:absolute;
+    top:50%;
+    }
+  
+    .card{
+      padding:.5rem;
+      display:inline-block;
+      border:1px solid silver;
+      margin:.5rem
+    }
+  

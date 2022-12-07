@@ -5,7 +5,7 @@ import { EtudiantsComponent } from './etudiants.component';
 import { ListEtudiantComponent } from './list-etudiant/list-etudiant.component';
 import { NavEtudiantComponent } from './nav-etudiant/nav-etudiant.component';
 import { FormEtudiantComponent } from './form-etudiant/form-etudiant.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EtudiantequipesComponent } from './etudiantequipes/etudiantequipes.component';
 import { EtudiantContratComponent } from './etudiant-contrat/etudiant-contrat.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
@@ -22,6 +22,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDialog } from '@angular/material/dialog';
+import { ListDepComponent } from './list-dep/list-dep.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     DetailEtudiantComponent,
     ItemEtudiantComponent,
     DepartmentEtudiantComponent,
-    ListetudiantbydepartmentComponent
+    ListetudiantbydepartmentComponent,
+    ListDepComponent
   
 
   ],
@@ -51,7 +54,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatSelectModule,
     MatFormFieldModule,
     MatToolbarModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    ReactiveFormsModule
+    
   ]
 })
 export class EtudiantsModule { }

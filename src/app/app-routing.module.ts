@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 const ROUTES: Routes= [
-
+  {path:'',loadChildren: () => import('./Etudiant/etudiants/etudiants.module').then(m => m.EtudiantsModule)},
   { path: 'etudiants', loadChildren: () => import('./Etudiant/etudiants/etudiants.module').then(m => m.EtudiantsModule) },
   { path: 'contrats', loadChildren: () => import('./contrats/contrats.module').then(m => m.ContratsModule) },
   { path: 'departments', loadChildren: () => import('./departments/departments.module').then(m => m.DepartmentsModule) },

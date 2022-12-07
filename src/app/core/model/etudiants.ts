@@ -9,6 +9,8 @@ export class etudiants{
           idEquipe:number; 
           nomEquipe:String;
           niveau:String;
+          logo:String;
+          fav:number;
      }] ; 
      contrat :[
         {

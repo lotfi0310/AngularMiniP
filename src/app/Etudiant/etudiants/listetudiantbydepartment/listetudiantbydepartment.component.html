@@ -1,5 +1,5 @@
-
-  <table class="table"  >
+<div class="container container-fluid" style="padding:50px ;">
+  <table class="table thumbnail " >
     <thead class="thead-dark">
 
       <tr>
@@ -8,7 +8,7 @@
         <th scope="col"> prenom Etudiant</th>
         <th scope="col">  Datenaissance Etudiant</th>
         <th scope="col"> option Etudiant</th>
-
+        <th scope="col"> Picture</th>
       </tr>
     </thead>
     <tbody  >
@@ -18,6 +18,9 @@
         <td>{{item.prenomE}}</td>
         <td>{{item.date_naissance}}</td>
         <td>{{item.option}}</td>
+        <td style="width:100px ; border-radius:2px;  border-width:0.5ch; border-color:rgb(107, 112, 247) ;"><img src={{item.picture}}></td>
       </tr>
     </tbody>
+
   </table>
+</div>

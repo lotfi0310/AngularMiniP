@@ -1,3 +1,5 @@
+<div class="container " style="padding:50px">
+<td > <button type="button"  class="btn btn-outline-warning" style="margin-bottom:10px ;" [routerLink]="['/etudiants/listdep',id]" >Add student to department</button></td>
 
 <div class="container"  >
     <table class="table"  >
@@ -13,12 +15,14 @@
           <tr >
             <td>{{etudiant.departement.idDepart}}</td>
             <td>{{etudiant.departement.nomDepart}}</td>
+             
             <td *ngIf="etudiant.departement.idDepart"><button type="button" class="btn btn-outline-primary" [routerLink]="['/etudiants/listetudiantbydepartment',etudiant.departement.idDepart]" >others students in this department:{{etudiant.departement.nomDepart}} </button></td>
-            
+
           </tr>
         </tbody>
+        
       </table>
-</div>
 
+    </div>
 
-
+  </div>
