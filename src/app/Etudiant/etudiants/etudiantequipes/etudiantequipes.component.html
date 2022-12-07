@@ -4,13 +4,17 @@
       <tr>
         <th scope="col">nom Equipe</th>
         <th scope="col">niveau</th>
+        <th>Favoris</th>
+        <th scope="col">logo Equipe</th>
       </tr>
     </thead>
     <tbody  >
       <tr *ngFor="let eq of etudiant.equipe ">
         <td>{{eq.nomEquipe}}</td>
         <td>{{eq.niveau}}</td>
-      
+        <td>{{eq.fav}}</td>
+        <td style="width:100px ; border-radius:2px;  border-width:0.5ch; border-color:rgb(107, 112, 247) ;"><img  src={{eq.logo}}></td>
+         
       </tr>
      
     </tbody>

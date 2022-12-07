@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { etudiants } from 'src/app/core/model/etudiants';
 import { EtudiantService } from 'src/app/core/services/etudiant.service';
 import { ItemEtudiantComponent } from '../item-etudiant/item-etudiant.component';
-
+import { FormGroup,FormControl } from '@angular/forms';
 @Component({
   selector: 'app-list-etudiant',
   templateUrl: './list-etudiant.component.html',
@@ -18,9 +18,12 @@ export class ListEtudiantComponent implements OnInit {
   searchText: any; 
   age:number; 
   critereage :number;
-  
+  ageForm=new FormGroup({
+    agecritere:new FormControl('')
+  })
   constructor(private etudiantService : EtudiantService,private route:Router,private current:ActivatedRoute) {
     this.critereage=0;
+    
    }
 
   ngOnInit(): void {
@@ -31,7 +34,7 @@ export class ListEtudiantComponent implements OnInit {
   }
 
 
-
+ 
   DeleteEtudiant(item:any){
     let i = this.listetudiants.indexOf(item);
     console.log(i);
