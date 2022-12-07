@@ -6,7 +6,10 @@ import { DrawerComponent } from '../drawer/drawer.component';
 import { CardComponent } from '../card/card.component';
 import { Contrat } from '../Model/Contrat';
 
-
+interface Archive {
+  value: string;
+  viewValue: string;
+}
 
 @Component({
   selector: 'app-dialog',
@@ -14,6 +17,15 @@ import { Contrat } from '../Model/Contrat';
   styleUrls: ['./dialog.component.css'],
 })
 export class DialogComponent implements OnInit {
+
+
+  selectedValue: string;
+
+  archives: Archive[] = [
+    { value: 'true', viewValue: 'True' },
+    { value: 'false', viewValue: 'False' }
+  ];
+
   a: number = 0;
   public contrat: Contrat;
   contratForm!: FormGroup;
@@ -30,7 +42,6 @@ export class DialogComponent implements OnInit {
 
 
 
-    console.log(this.editData);
     if (this.editData) {
       this.actionBtn = "Update";
       this.AddUpdate = "Update";
@@ -56,7 +67,7 @@ export class DialogComponent implements OnInit {
   }
   userid2: number;
 
-  onLogin2(user: number) {
+  onClick(user: number) {
     this.userid2 = user;
   }
 

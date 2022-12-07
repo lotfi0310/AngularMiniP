@@ -64,12 +64,17 @@ export class ContratsComponent implements OnInit {
     this.api.DelContrat(id)
       .subscribe({
         next: (res) => {
-          alert("Contrat Deleted Successfullly")
-        },
+          alert("Contrat Deleted Successfullly");
+          this.getAllContrats()
+
+        }
+        ,
         error: () => {
           alert("Error while deleting the Contrat!!")
         }
       })
+
+
 
   }
 

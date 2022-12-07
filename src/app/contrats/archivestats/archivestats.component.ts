@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Chart, ChartConfiguration } from 'chart.js';
+import { Chart } from 'chart.js';
 import { ApiService } from '../services/api.service';
-import { IArchivePercentType } from '../Model/ArchivePercentType';
 
 
 @Component({
