@@ -1,7 +1,11 @@
-<div class="container " style=" padding-left: 50px; padding-right: 50px;">
 
+
+
+
+<div class="container " style=" padding-left: 50px; padding-right: 50px;">
 <div class="row">
   <button  class="btn btn-outline-primary" [routerLink]="['/etudiants/add'] ">new Student</button>
+  <form [formGroup]="ageForm" >
  <div class="  row" style="padding-top: 15px;">
   <div class="col-md-2">
     <div class="row">
@@ -9,16 +13,15 @@
         <label class="mat-label">Entrer un critére </label>
       </div>
       <div class="col">
-        <input class="form-control" type="number"  [(ngModel)]="critereage" >
+        <input class="form-control" type="number" formControlName="agecritere"   [(ngModel)]="critereage" >
       </div>
     </div>
   </div>
   <div class="col-md-2">
     <button class=" btn btn-outline-warning" [routerLink]="['/etudiants/statistics',critereage]" >Statistic Age </button>
   </div>
- 
  </div>
-
+</form>
 </div>
 <div class="input-group" style="margin-bottom: 10px; padding-top: 15px;">
   <input type="search" class="form-control rounded"  placeholder="Search" name="search" [(ngModel)]="searchText"  aria-label="Search" aria-describedby="search-addon" autocomplete="on" />
@@ -26,7 +29,5 @@
 <div class="container col " style="  margin-top :10px;display: flex; flex-direction: column ;justify-content: space-beetween; border-radius: 5px;
  " *ngFor=" let item of listetudiants |  filter:searchText ; let i=index" >
 <app-item-etudiant [etudiant]="item" (deleteEtudiant)="DeleteEtudiant(item)"></app-item-etudiant>
-
 </div>
-
 </div>

@@ -11,7 +11,7 @@ export const environment = {
   urlDep: 'http://localhost:8089/SpringMVC/DepartmentController/',
   urlEns: 'http://localhost:8089/SpringMVC/EnseignantController/',
   urlCont: 'http://localhost:8089/SpringMVC',
-  urldet: 'http://localhost:8081/SpringMVC/DetailEquipeController/',
+  urldet: 'http://localhost:8089/SpringMVC/DetailEquipeController/',
   url_u: 'http://localhost:8089/SpringMVC/UniversityController/'
 
 };
