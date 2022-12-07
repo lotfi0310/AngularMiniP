@@ -13,15 +13,30 @@ import { etudiants } from 'src/app/core/model/etudiants';
 })
 export class FormEquipeComponent implements OnInit {
     public listS: etudiants[];
+    public listSS: etudiants[];
+
+    public listE: Equipe[];
+
     private equipeService: EquipeService;
     public equipe: Equipe;
     public etudiants: etudiants;
     public action: string;
     public id : number;
+    selectedLevel: etudiants;
   constructor(private equipeservice: EquipeService,
     private router:Router, private currentRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.equipeservice.getAllStud().subscribe(
+      (X:etudiants[])=>{
+        this.listSS = X;
+      }
+    )
+    this.equipeservice.getAllProduct().subscribe(
+      (X:Equipe[])=>{
+        this.listE = X;
+      }
+    )
      this.id= this.currentRoute.snapshot.params['id'];
     console.log(this.id);
     if(this.id!=null){
@@ -42,7 +57,8 @@ export class FormEquipeComponent implements OnInit {
           this.listS = X;
         }
       )
-        
+      this.selectedLevel =this.listS[0];
+
     }
 
   saveEquipe(){
@@ -65,5 +81,22 @@ export class FormEquipeComponent implements OnInit {
       ()=>{ this.router.navigate(['/equipes'])}
     )
   }
+  refresh(){
+    this.equipeservice.getAllStud().subscribe(
+      (X:etudiants[])=>{
+        this.listSS = X;
+      }
+    )
+  }
+
+  afffect(){
+
+    this.equipeservice.affect(this.id,this.selectedLevel.idEtudiant).subscribe(
+      ()=>{ this.router.navigate(['/equipes'])}
+
+    )
+    console.log("id etudiant"+this.selectedLevel.idEtudiant)
+    console.log("id equipe ",this.id)
 }
 
+}

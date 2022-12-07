@@ -13,7 +13,7 @@
 <div class="col" *ngFor="let i of listE | filter:searchText">
 <div >
   -->
-    <div class="card-body"  >
+    <div class="card-body" style="padding: 20%;" >
         <div
         class="bg-image hover-overlay ripple shadow-1-strong rounded"
         data-mdb-ripple-color="light">
@@ -24,14 +24,16 @@
     </div>
     <i class="bi bi-heart-fill"></i>  
      <h4 class="card-text">{{equipe.nomEquipe}}<br><h6>({{equipe.niveau}})</h6></h4> 
-     <div *ngIf="equipe.fav==0; else elseBlock">
-     <button class="btn btn-sm" (click)="notifyParent()" >
-      <mat-icon>favorite_border</mat-icon>
+     <div *ngIf="equipe.fav==0">
+     <button class="btn btn-sm" (click)="notifyParent(1)" >
+      <span class="material-icons">favorite_border</span>
     </button>
-  </div>
-  <ng-template #elseBlock>
-    <mat-icon>favorite</mat-icon>
-  </ng-template>
+      </div>
+     <div  *ngIf="equipe.fav==1" >
+     <button class="btn btn-sm" (click)="notifyParent(2)" >
+     <mat-icon>favorite</mat-icon>
+     </button>
+</div>
     </div>
   <!-- 
 

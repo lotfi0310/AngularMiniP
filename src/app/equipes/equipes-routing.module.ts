@@ -10,14 +10,16 @@ import { ListEquipeComponent } from './list-equipe/list-equipe.component';
 import { ListStadeComponent } from './list-stade/list-stade.component';
 import { NavEquipeComponent } from './nav-equipe/nav-equipe.component';
 
-const routes: Routes = [{ path: '', component: NavEquipeComponent},
+const routes: Routes = [
+  { path:'', component: EquipesComponent , children : [
+  {path:'',component:NavEquipeComponent},
   {path:'add',component:FormEquipeComponent},
   {path:'stat',component:BarChartComponent},
   {path:'stade',component:FormStadeComponent},
   {path:'listStatds',component:ListStadeComponent},
   {path:'favorites',component:FavoriteComponent},
-  {path:'update/:id',component:FormEquipeComponent}
-] ;
+  {path:'update/:id',component:FormEquipeComponent}]}]
+;
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

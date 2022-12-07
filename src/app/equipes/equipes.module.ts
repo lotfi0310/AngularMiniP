@@ -50,7 +50,7 @@ import { ListStadeComponent } from './list-stade/list-stade.component';
     CommonModule,
     FormsModule,
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   
 
   ],
