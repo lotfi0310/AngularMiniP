@@ -1,36 +1,106 @@
-<form>
+
+
+
+
+<form #f="ngForm" class="container container-fluid" >
+    <p>{{action}} Etudiant</p>
+    <div class="form-group ">
+        <div>
+            <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Nom Etudiant: * </label>
+            <input type="text" class="form-control form-control-sm" [(ngModel)]="etudiant.nomE"  name="nomE" id="colFormLabelSm" placeholder="" required minlength="3"
+            pattern="[A-Za-z]{3,12}$" #n="ngModel">
+            <div class="alert alert-danger" *ngIf="n.invalid && n.touched">
+                <div *ngIf="n.hasError('required')">
+                   this field is required
+                  </div>
+                <div *ngIf="n.hasError('minlength')">
+                   minlength = 3 !
+                </div>
+                <div *ngIf="n.hasError('pattern')">
+                  error pattern
+               </div>
+            </div>
+            <div   *ngIf="!n.invalid " class="alert alert-success" role="alert">
+            success 
+              </div>
+        </div>
+    </div>
     <div class="form-group">
         <div>
-            <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Nom Etudiant</label>
-            <input type="text" class="form-control form-control-sm" name="nomE" id="colFormLabelSm" placeholder="">
-        </div>
-        <div>
             <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Prenom Etudiant</label>
-            <input type="text" class="form-control form-control-sm" name="penomE" id="colFormLabelSm" placeholder="">
-        </div>
-       
-        <div class="form-row align-items-center">
-            <div class="col-auto my-1">
-              <select class=" select-control mr-sm-2" id="inlineFormCustomSelect">
-                <option selected>Choose option</option>
-                <option value="1">GAMIX</option>
-                <option value="2">NIDS</option>
-                <option value="2">SE</option>
-                <option value="2">SIM</option>
-              </select>
+            <input type="text" class="form-control form-control-sm"[(ngModel)]="etudiant.prenomE" name="prenomE" id="colFormLabelSm" placeholder="" required minlength="3" pattern="[A-Za-z]{3,12}$" #p="ngModel">
+            <div class=" alert alert-danger" *ngIf="p.invalid && p.touched">
+                <div *ngIf="p.hasError('required')">
+                    this field is required
+                   </div>
+                 <div *ngIf="p.hasError('minlength')">
+                    minlength = 3 !
+                 </div>
+                 <div *ngIf="p.hasError('pattern')">
+                   error pattern
+                </div>
             </div>
+            <div   *ngIf="!p.invalid " class="alert alert-success" role="alert">
+                success 
+                  </div>
         </div>
-       
-        <div class="form-outline datepicker" data-mdb-format="dd, mmm, yyyy">
-          <input type="text" class="form-control" id="datepicker" placeholder="dd, mmm, yyyy" />
-          <label for="exampleDatepicker4" class="form-label">Select a date</label>
-        </div>
-
-      <script type="text/javascript">
-        $(function() {
-            $('.datepicker').datepicker();
-        });
-    </script>
-
     </div>
+    <div class="form-group">
+       <div>
+        
+        
+    <mat-form-field appearance="fill" style=" margin-top:10px ;">
+      <input matInput [matDatepicker]="picker" type="text" class="form-control form-control-sm" [(ngModel)]="etudiant.date_naissance" name="date_naissance" id="colFormLabelSm" placeholder="" required  minlength="10" maxlength="10" #da="ngModel">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+        <div class="alert alert-danger" *ngIf="da.invalid && da.touched">
+         <div *ngIf="da.hasError('required')">
+            you must pick you birth day
+           </div>
+           
+           <div *ngIf="da.hasError('minlength')|| da.hasError('maxlength')">
+              longeur de date must be 10 !
+           </div>
+      
+         </div>
+         <div   *ngIf="!da.invalid " class="alert alert-success" role="alert">
+            success 
+              </div>
+         
+        </div>
+       </div>
+   
+    <div class="form-group">
+
+        <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">option</label>
+
+    <select class="form-select" #s="ngModel" required    [(ngModel)]="etudiant.option" name="option" aria-label="Default select example">
+        <option selected disabled >Open this to select un option</option>
+        <option value="GAMIX">Gamix</option>
+        <option value="SE">SE</option>
+        <option value="SIM">SIM</option>
+        <option value="NIDS">NIDS</option>
+      </select>
+      <div  class="alert alert-danger"  *ngIf="s.invalid && s.touched">
+        <div *ngIf="s.hasError('required')">
+            you must pick one of this option 
+        </div>
+      </div>
+      <div   *ngIf="!s.invalid  " class="alert alert-success" role="alert">
+        success 
+          </div>
+    </div>
+    <div class="form-group"> 
+
+        <input type="file"  class="form-control" [(ngModel)]="etudiant.picture" src="url" style="margin-top: 4%;"   (change)="onFileChange($event)"  name="picture" id="customFile" />
+        </div>
+
+    <div class="form-group">
+        <button class=" btn btn-outline-primary"style="margin:5px" type=" submit" style="margin-top:4%"     [disabled]="f.invalid"   (click)="saveEtudiant()" >{{action}}</button>
+    </div>
+  
 </form>
+
