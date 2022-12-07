@@ -12,7 +12,7 @@ export class DrawerComponent implements OnInit {
   public list: Student[];
   public all: Student[];
 
-  @Output() login2 = new EventEmitter<number>();
+  @Output() move = new EventEmitter<number>();
 
 
   constructor(private api: ApiService) { }
@@ -23,16 +23,15 @@ export class DrawerComponent implements OnInit {
   }
 
   userid: number;
-  onLogin(user: number) {
+  onEve(user: number) {
     this.userid = user;
-    this.login2.emit(user);
+    this.move.emit(user);
   }
   getAllStudents() {
     this.api.getStudents()
       .subscribe(
         (data: Student[]) => {
           this.all = data;
-          console.log("debug data", this.all)
         }
       )
 
