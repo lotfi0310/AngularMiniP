@@ -8,7 +8,7 @@ import {Universite} from "../model/universite";
   providedIn: 'root'
 })
 export class UniversiteService {
-  public  url_list= environment.url ;
+  public  url_list= environment.url_u ;
   public univ : Universite;
   getalluniversities='displayUniversities'
   constructor(private httpClient :HttpClient) {

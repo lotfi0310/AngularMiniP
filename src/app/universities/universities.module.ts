@@ -11,6 +11,8 @@ import {NavUniversiteComponent} from "./nav-universite/nav-universite.component"
 import { UniversityDetailComponent } from './list-universite/university-detail/university-detail.component';
 import { AddDepComponent } from './add-dep/add-dep.component';
 import {Ng2SearchPipeModule} from "ng2-search-filter";
+import {NgxPaginationModule} from "ngx-pagination";
+import {MatButtonModule} from "@angular/material/button";
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import {Ng2SearchPipeModule} from "ng2-search-filter";
         UniversitiesRoutingModule,
         FormsModule,
         ReactiveFormsModule,
-        Ng2SearchPipeModule
+        Ng2SearchPipeModule,
+        NgxPaginationModule,
+        MatButtonModule
     ]
 })
 export class UniversitiesModule { }
