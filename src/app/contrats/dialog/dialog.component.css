@@ -129,3 +129,8 @@
     top: -24px;
     right: -526px;
 }
+
+.btn-text-left {
+    text-align: left;
+    padding-top: 20px;
+}

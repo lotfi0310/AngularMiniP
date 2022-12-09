@@ -1,5 +1,5 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../services/api.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DrawerComponent } from '../drawer/drawer.component';
@@ -29,6 +29,13 @@ export class DialogComponent implements OnInit {
   a: number = 0;
   public contrat: Contrat;
   contratForm!: FormGroup;
+  dateDebutContrat!: FormControl;
+  dateFinContrat!: FormControl;
+  specialite!: FormControl;
+  archive!: FormControl;
+  montantContrat!: FormControl;
+
+
   actionBtn: string = "save";
   AddUpdate: string = "Add"
   constructor(private formBuilder: FormBuilder,
@@ -38,9 +45,6 @@ export class DialogComponent implements OnInit {
     private dialogRef: MatDialogRef<DialogComponent>) { }
   @Input() drawer: DrawerComponent;
   ngOnInit(): void {
-
-
-
 
     if (this.editData) {
       this.actionBtn = "Update";
@@ -55,11 +59,11 @@ export class DialogComponent implements OnInit {
 
     } else {
       this.contratForm = this.formBuilder.group({
-        dateDebutContrat: ['', Validators.required],
-        dateFinContrat: ['', Validators.required],
-        specialite: ['', Validators.required],
-        archive: ['', Validators.required],
-        montantContrat: ['', Validators.required]
+        dateDebutContrat: new FormControl('', Validators.required),
+        dateFinContrat: new FormControl('', Validators.required),
+        specialite: new FormControl('', Validators.required),
+        archive: new FormControl('', Validators.required),
+        montantContrat: new FormControl('', Validators.required)
       });
     }
 
@@ -185,6 +189,9 @@ export class DialogComponent implements OnInit {
   };
 
 
+  resetControls() {
+    this.contratForm.reset();
+  }
 
 
 
