@@ -43,12 +43,13 @@
                     <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
                     <td mat-cell *matCellDef="let row">
                         <button mat-icon-button color="primary" (click)="editContrat(row)">
-                            <mat-icon>Edit</mat-icon>
+                            Edit
                         </button>
 
-                        <button mat-icon-button color="warn" (click)="DelContrat(row.idContrat)">
-                            <mat-icon>Delete</mat-icon>
+                        <button mat-button color="warn" (click)="DelContrat(row.idContrat)">
+                            Delete
                         </button>
+
                     </td>
                 </ng-container>
 

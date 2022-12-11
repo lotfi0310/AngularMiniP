@@ -8,14 +8,13 @@ import { Student } from '../Model/student';
 })
 export class CardComponent implements OnInit {
   @Input() card: Student;
-  @Output() login = new EventEmitter<number>();
+  @Output() Stu = new EventEmitter<number>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
   getcardid(Tesy: number) {
-    console.log("test id : ", Tesy)
-    this.login.emit(Tesy);
+    this.Stu.emit(Tesy);
   }
 }

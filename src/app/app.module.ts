@@ -1,4 +1,4 @@
-import { NgModule ,CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +21,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule, Routes } from '@angular/router';
 import { ArchivestatsComponent } from './contrats/archivestats/archivestats.component';
+import { LoginComponent } from './login/login.component';
+import { authInterceptorProviders } from './core/services/auth.Interceptor';
+import { DatePipe } from '@angular/common';
 const appRoute: Routes = [
   { path: 'app-archivestats', component: ArchivestatsComponent }
 ]
@@ -28,9 +31,10 @@ const appRoute: Routes = [
   declarations: [
     AppComponent,
     SidebarComponent,
-   
-   
-   
+    LoginComponent,
+
+
+
   ],
   imports: [
     BrowserModule,
@@ -47,9 +51,10 @@ const appRoute: Routes = [
     MatButtonModule,
     MatIconModule,
     MatDividerModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
