@@ -61,16 +61,15 @@ export class LoginComponent implements OnInit {
         console.log("debug token", data.token);
         this.login.getCurrentUser().subscribe(
           (user: any) => {
-            console.log("hellobgbdbdbd");
             this.login.setUser(user);
-            // console.log(user);
+            console.log("Debug user role ", this.login.getUserRole());
 
-            if (this.login.getUserRole() == 'NORMAL') {
+            if (this.login.getUserRole() == 'Admin') {
 
               Swal.fire('Bienvenue', this.login.getUser().username, 'success').then((result) => {
                 if (result.isConfirmed) {
 
-                  this.router.navigate(['/']);
+                  this.router.navigate(['/etudiants']);
 
                   // window.location.href='/';
                 }
