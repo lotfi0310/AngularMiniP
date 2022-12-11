@@ -4,4 +4,5 @@ export class Student {
     nomE: String;
     date_naissance: String;
     option: String;
+    picture: String;
 }

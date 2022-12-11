@@ -10,7 +10,7 @@
     <form [formGroup]="contratForm" name="suForm" id="supform">
 
 
-        <mat-form-field appearance="outline" style="padding-right: 40px;">
+        <mat-form-field appearance="outline" class="col-6 offset-3">
             <mat-label>DateDebutContrat</mat-label>
             <input formControlName="dateDebutContrat" id="name" matInput [matDatepicker]="picker1">
             <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
@@ -18,7 +18,7 @@
         </mat-form-field>
 
 
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" class="col-6 offset-3">
             <mat-label>DateFinContrat</mat-label>
             <input formControlName="dateFinContrat" id="email" matInput [matDatepicker]="picker2">
             <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
@@ -26,7 +26,7 @@
         </mat-form-field>
 
 
-        <mat-form-field appearance="outline" style="padding-right: 40px;">
+        <mat-form-field appearance="outline" class="col-6 offset-3">
             <mat-label>Specialite:</mat-label>
             <mat-select formControlName="specialite">
                 <mat-option value="IA">
@@ -43,7 +43,7 @@
                 </mat-option>
             </mat-select>
         </mat-form-field>
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" class="col-6 offset-3">
             <mat-label>Archive:</mat-label>
             <!--<input formControlName="archive" matInput placeholder="Placeholder" minlength="3" id="pass">-->
             <mat-select formControlName="archive" [(ngModel)]="selectedValue" name="Archive" id="pass">
@@ -53,11 +53,21 @@
             </mat-select>
 
         </mat-form-field>
-        <mat-form-field appearance="outline">
-            <mat-label>MontantContrat:</mat-label>
-            <input formControlName="montantContrat" matInput placeholder="Montant" type="number">
+
+        <mat-form-field appearance="outline" class="col-6 offset-3">
+
+            <label class="form-label">Montant</label>
+            <div class="input-group mb-3">
+                <span class="input-group-text">$</span>
+
+                <input type="number" style="text-align: center;" matInput placeholder="Montant" class="form-control"
+                    aria-label="Amount (to the nearest dollar)" formControlName="montantContrat" tabindex="-1" />
+                <span class="input-group-text">.00</span>
+
+            </div>
 
         </mat-form-field>
+
 
 
         <div mat-dialog-action *ngIf="AddUpdate === 'Update'">
@@ -87,7 +97,13 @@
             <button style="margin-left: 8px;" mat-raised-button color="primary" id="submit-btn"
                 (mouseover)="onmouseOver()">{{actionBtn}}</button>
 
-            <!--<input type="submit" id="submit-btn" (mouseover)="onmouseOver()">-->
+            <div class="btn-text-left">
+                <button type="button" class="btn btn-warning mx-2" (click)="resetControls()">
+                    <i class="fa-solid fa-broom pe-2"></i>
+                    Reset
+                </button>
+            </div>
+
 
         </div>
 

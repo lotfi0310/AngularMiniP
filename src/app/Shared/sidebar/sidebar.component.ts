@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from 'src/app/core/services/login.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  role: String;
+
+  constructor(private loginService: LoginService) { }
 
   ngOnInit(): void {
+    this.role = this.loginService.getUserRole();
   }
 
 }
