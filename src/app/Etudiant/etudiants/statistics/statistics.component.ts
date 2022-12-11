@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgModel } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { StatisticsService } from 'src/app/core/services/statistics.service';
+import { Chart } from 'chart.js';
 
 @Component({
   selector: 'app-statistics',
@@ -8,43 +10,51 @@ import { StatisticsService } from 'src/app/core/services/statistics.service';
   styleUrls: ['./statistics.component.css'],
 })
 export class StatisticsComponent implements OnInit {
+  pu:number=0;
+  pa:number=0;
   listages:number[];
+  listchartpie:number[];
   criteria:number;
-  countageundercriteria:number; 
+  countageundercriteria:number ; 
   countageabovecriteria:number; 
   percentundercriteria :number; 
   percentabovecriteria:number; 
   constructor(private statservice:StatisticsService,private current:ActivatedRoute) {
-    this.countageabovecriteria=0;
-    this.countageundercriteria=0;
-    this.percentundercriteria=0;
+   this.countageundercriteria=0;
+   this.countageabovecriteria=0;
+   this.percentundercriteria=0;
    this.percentabovecriteria=0;
    }
 
   ngOnInit(): void {
-   this.statservice.getEtudiantsAges().subscribe((data)=>{
-    this.listages=data;
-    this.criteria=this.current.snapshot.params['critereage'];
-    console.log(this.criteria);
-    console.log(this.listages)
-    for ( let i in this.listages){
-      if(this.listages[i]> this.criteria){
-        console.log(this.listages[i]);
-        this.countageabovecriteria++;
-        this.percentabovecriteria=(this.countageabovecriteria/this.listages.length)*100;
 
-      }
-     if (this.listages[i] < this.criteria){
-        console.log(this.listages[i])
-        this.countageundercriteria++;
+    this.statservice.getEtudiantsAges().subscribe((data1)=>{
+    this.listchartpie=data1;
+   
+      this.renderChart(this.listchartpie);
+     });
+    
+    this.statservice.getEtudiantsAges().subscribe((data)=>{
+      this.listages=data;
+      this.criteria=this.current.snapshot.params['critereage'];
+      console.log(this.criteria);
+      console.log(this.listages)
+      for ( let i in this.listages){
+        if(this.listages[i]>= this.criteria ){
+          console.log(this.listages[i]);
+          this.countageabovecriteria++;
+          this.percentabovecriteria=(this.countageabovecriteria/this.listages.length)*100;
 
-        this.percentundercriteria=(this.countageundercriteria/this.listages.length)*100
-
-      }
-    }
-   });
   
-
+        }
+       if (this.listages[i] < this.criteria){
+          console.log(this.listages[i])
+          this.countageundercriteria++;
+          this.percentundercriteria=(this.countageundercriteria/this.listages.length)*100
+        }
+      }
+     });
+    
 }
 setMystyle1(){
 
@@ -71,5 +81,34 @@ setMystyle2(){
   };
   return style;
 }
+
+
+
+renderChart(list:number[] ) {
+  const chart = new Chart('pie-chart', {
+    type: 'pie',
+    data: {
+      labels: ['Ages Students'],
+      datasets: [
+        {
+          label: '#statut',
+          data: list,
+          backgroundColor: ['#FA7070', '#B1B2FF','yellow'],
+          borderWidth: 3,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+
+}
+
+
 
 }

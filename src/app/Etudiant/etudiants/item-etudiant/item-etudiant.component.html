@@ -1,5 +1,5 @@
 
-<div class="container container-fluid" style="padding: 50px;">
+<div class="container container-fluid" style="padding: 20px; ">
 
 <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -11,7 +11,7 @@
 </nav>
 <div class=" row " style="background-color:#81aeb4; border-radius: 10px;">
     <div class="col col-sm-6 "style="padding:40px ">
-<img src={{etudiant.picture}} class="card-img-top img-thumbnail" alt="thumbnail" style="border-width: 1ch; border-radius: 10px ;" >
+<img src={{etudiant.picture}} class="card-img-top img-thumbnail" alt="thumbnail"  style="border-width: 1ch; border-radius: 10px ; display: block;" >
 <div class=" row cont_button" style="display: flex;
 justify-content: space-between; height: min-content;"
  >
@@ -21,17 +21,20 @@ justify-content: space-between; height: min-content;"
    </div>
      <div class="col col-sm-6" style=
      "display: flex;
-     padding:200px;
+     padding:100;
      flex-direction:column; 
      justify-content: center space-around;
      padding-left: 5%;
      font-size: large;
      color: #FFF;
    ">
-      <app-detail-etudiant [etudiant1]="etudiant" ></app-detail-etudiant>
+   <div class="container" style=" border-radius: 10px; padding-top: 15px;">
+      <app-detail-etudiant [etudiant1]="etudiant" ></app-detail-etudiant></div>
 
     
     </div>
      
 </div>
+
+
 </div>

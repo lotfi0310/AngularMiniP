@@ -24,7 +24,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDialog } from '@angular/material/dialog';
 import { ListDepComponent } from './list-dep/list-dep.component';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTable, MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { NgChartsModule } from 'ng2-charts';
 @NgModule({
   declarations: [
     EtudiantsComponent,
@@ -39,7 +41,6 @@ import { ListDepComponent } from './list-dep/list-dep.component';
     DepartmentEtudiantComponent,
     ListetudiantbydepartmentComponent,
     ListDepComponent
-  
 
   ],
   imports: [
@@ -55,8 +56,15 @@ import { ListDepComponent } from './list-dep/list-dep.component';
     MatFormFieldModule,
     MatToolbarModule,
     MatDatepickerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatPaginatorModule,
+    MatTableModule,
+    NgChartsModule
+
     
+    
+    
+
   ]
 })
 export class EtudiantsModule { }

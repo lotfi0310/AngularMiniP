@@ -14,15 +14,12 @@ export class ItemEtudiantComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getEtudiantdetails(this.etudiant);
   }
   delete(){
     this.deleteEtudiant.emit(this.etudiant);
   }
  
-  getEtudiantdetails(etudiant:any){
-   return etudiant;
-  }
+
   
   
    
