@@ -25,7 +25,7 @@ export class etudiants{
      departement:{
           idDepart:number;
           nomDepart:String;
-
+               
      };
-    
+  
 }

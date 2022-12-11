@@ -15,8 +15,15 @@ export class FormEtudiantComponent implements OnInit {
   imageSrc: string;
   idEtudiant : number ; 
   action:string; 
+  options = [
+    
+    {value: 'GAMIX', viewValue: 'GAMIX'},
+    {value: 'SE', viewValue: 'SE'},
+    {value: 'SIM', viewValue: 'SIM'},
+    {value: 'NIDS', viewValue: 'NIDS'}
+  ];
   constructor(private etudiantService: EtudiantService, private route: Router, private current : ActivatedRoute ) {
-  
+   
 
    }
 

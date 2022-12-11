@@ -40,7 +40,9 @@
               "node_modules/primeicons/primeicons.css"
 
             ],
-            "scripts": [ "./node_modules/hammerjs/hammer.min.js","node_modules/bootstrap/dist/js/bootstrap.js"]
+            "scripts": [ "./node_modules/hammerjs/hammer.min.js",
+            "node_modules/bootstrap/dist/js/bootstrap.js"
+          ]
           },
           "configurations": {
             "production": {
