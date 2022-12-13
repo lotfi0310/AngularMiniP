@@ -22,11 +22,12 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { ListDepComponent } from './list-dep/list-dep.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTable, MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { NgChartsModule } from 'ng2-charts';
+import { MatGridListModule } from '@angular/material/grid-list';
 @NgModule({
   declarations: [
     EtudiantsComponent,
@@ -40,7 +41,7 @@ import { NgChartsModule } from 'ng2-charts';
     ItemEtudiantComponent,
     DepartmentEtudiantComponent,
     ListetudiantbydepartmentComponent,
-    ListDepComponent
+    ListDepComponent,NavEtudiantComponent
 
   ],
   imports: [
@@ -59,7 +60,9 @@ import { NgChartsModule } from 'ng2-charts';
     ReactiveFormsModule,
     MatPaginatorModule,
     MatTableModule,
-    NgChartsModule
+    NgChartsModule,
+    MatDialogModule,
+    MatGridListModule
 
     
     

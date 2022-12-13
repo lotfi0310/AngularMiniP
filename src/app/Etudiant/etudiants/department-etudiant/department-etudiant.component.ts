@@ -9,6 +9,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { AnyARecord } from 'dns';
+import { LoginService } from 'src/app/core/services/login.service';
 @Component({
   selector: 'app-department-etudiant',
   templateUrl: './department-etudiant.component.html',
@@ -17,8 +18,9 @@ import { AnyARecord } from 'dns';
 export class DepartmentEtudiantComponent implements OnInit {
  id :number; 
  etudiant: etudiants; 
-
-  constructor(private etudserv :EtudiantService ,private current :ActivatedRoute) { 
+role:String;
+  constructor(private etudserv :EtudiantService ,private current :ActivatedRoute,private loginserv:LoginService) {
+  this.role=this.loginserv.getUserRole();
     this.id=this.current.snapshot.params['idEtudiant'];
 
   }

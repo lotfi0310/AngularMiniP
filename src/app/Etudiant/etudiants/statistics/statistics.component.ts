@@ -3,6 +3,7 @@ import { NgModel } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { StatisticsService } from 'src/app/core/services/statistics.service';
 import { Chart } from 'chart.js';
+import { EtudiantService } from 'src/app/core/services/etudiant.service';
 
 @Component({
   selector: 'app-statistics',
@@ -13,13 +14,13 @@ export class StatisticsComponent implements OnInit {
   pu:number=0;
   pa:number=0;
   listages:number[];
-  listchartpie:number[];
+  listchartpie:any[];
   criteria:number;
   countageundercriteria:number ; 
   countageabovecriteria:number; 
   percentundercriteria :number; 
   percentabovecriteria:number; 
-  constructor(private statservice:StatisticsService,private current:ActivatedRoute) {
+  constructor(private statservice:StatisticsService,private current:ActivatedRoute,private etudserv:EtudiantService) {
    this.countageundercriteria=0;
    this.countageabovecriteria=0;
    this.percentundercriteria=0;
@@ -30,9 +31,15 @@ export class StatisticsComponent implements OnInit {
 
     this.statservice.getEtudiantsAges().subscribe((data1)=>{
     this.listchartpie=data1;
-   
-      this.renderChart(this.listchartpie);
+    this.etudserv.getEtudiantsListe().subscribe((d)=>{
+      for(let i in d){
+        this.renderChart(this.listchartpie,d[i].nomE);
+
+      }
      });
+     });
+    
+     
     
     this.statservice.getEtudiantsAges().subscribe((data)=>{
       this.listages=data;
@@ -84,14 +91,14 @@ setMystyle2(){
 
 
 
-renderChart(list:number[] ) {
+renderChart(list:number[] , name:String ) {
   const chart = new Chart('pie-chart', {
     type: 'pie',
     data: {
       labels: ['Ages Students'],
       datasets: [
         {
-          label: '#statut',
+          label: ''+name,
           data: list,
           backgroundColor: ['#FA7070', '#B1B2FF','yellow'],
           borderWidth: 3,
