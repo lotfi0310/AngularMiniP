@@ -10,6 +10,7 @@ import { EtudiantService } from 'src/app/core/services/etudiant.service';
 
 export class NavEtudiantComponent implements OnInit {
   public filtredlist :etudiants[] ;
+  critereage :number;
   constructor(private etudiantService :EtudiantService) {
     
    }
@@ -17,6 +18,8 @@ export class NavEtudiantComponent implements OnInit {
   ngOnInit(): void {
     
     }
+    
+   
    
   
   
