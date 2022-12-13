@@ -99,6 +99,14 @@ export const ROUTES: RouteInfo[] = [
     submenu: []
   },
   {
+    path: '/etudiants',
+    title: 'Etudiant',
+    icon: 'bi bi-people',
+    class: '',
+    extralink: false,
+    submenu: []
+  },
+  {
     path: '/login',
     title: 'Login',
     icon: 'bi bi-people',

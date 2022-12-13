@@ -5,6 +5,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DrawerComponent } from '../drawer/drawer.component';
 import { CardComponent } from '../card/card.component';
 import { Contrat } from '../Model/Contrat';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 interface Archive {
   value: string;
@@ -21,10 +23,7 @@ export class DialogComponent implements OnInit {
 
   selectedValue: string;
 
-  archives: Archive[] = [
-    { value: 'true', viewValue: 'True' },
-    { value: 'false', viewValue: 'False' }
-  ];
+
 
   a: number = 0;
   public contrat: Contrat;
@@ -38,7 +37,7 @@ export class DialogComponent implements OnInit {
 
   actionBtn: string = "save";
   AddUpdate: string = "Add"
-  constructor(private formBuilder: FormBuilder,
+  constructor(private formBuilder: FormBuilder, private router: Router,
     private api: ApiService,
     @Inject(MAT_DIALOG_DATA) public editData: any,
 
@@ -47,6 +46,7 @@ export class DialogComponent implements OnInit {
   ngOnInit(): void {
 
     if (this.editData) {
+      console.log("debug archive : ", this.editData.archive)
       this.actionBtn = "Update";
       this.AddUpdate = "Update";
       this.contratForm = this.formBuilder.group({
@@ -76,7 +76,6 @@ export class DialogComponent implements OnInit {
   }
 
 
-
   addContrat() {
     console.log("test", this.contratForm.value);
     if (!this.editData) {
@@ -84,9 +83,10 @@ export class DialogComponent implements OnInit {
         this.api.postContrat(this.contratForm.value)
           .subscribe({
             next: () => {
-              alert("Contrat Added successfully");
+              Swal.fire('Contrat Added successfully !! ');
               this.contratForm.reset();
               this.dialogRef.close('save');
+
             },
             error: () => {
               alert("error while adding the contrat")
@@ -104,8 +104,8 @@ export class DialogComponent implements OnInit {
 
     this.api.updateContrat(this.contrat)
       .subscribe({
-        next: (res) => {
-          alert("Contrat updated Successfully");
+        next: () => {
+          Swal.fire('Contrat Updated successfully !! ');
           this.contratForm.reset();
           this.dialogRef.close('update');
         },
@@ -114,17 +114,8 @@ export class DialogComponent implements OnInit {
         }
       })
 
-    this.api.AddContratToStudent(this.editData.idContrat, this.userid2)
-      .subscribe({
-        next: (res) => {
-          alert("Contrat Affected to Student Successfully");
-          this.contratForm.reset();
-          this.dialogRef.close('update');
-        },
-        error: () => {
-          alert("Error while Affecting  Contrat!!");
-        }
-      })
+    this.api.AddContratToStudent(this.editData.idContrat, this.userid2);
+
 
 
 

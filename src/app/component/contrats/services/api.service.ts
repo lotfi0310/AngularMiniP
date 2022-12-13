@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 import { IArchivePercentType } from '../Model/ArchivePercentType';
 import { Student } from '../Model/student';
 import { map } from 'rxjs/operators';
 import { Contrat } from '../Model/Contrat';
+
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,9 @@ export class ApiService {
 
 
   constructor(private http: HttpClient) { }
+
+
+
 
   postContrat(data: any) {
     console.log(data)

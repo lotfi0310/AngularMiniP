@@ -1,0 +1,46 @@
+<div class="container" style="padding-top: 50px;">
+
+    <router-outlet>
+
+        <div class="row" style="padding-left:7% ;">
+            <div class="col-md-6 col-lg-3">
+                <div class="cardx">
+                    <div class="card-bodyx">
+                        <div class="d-flex align-items-center">
+                            <div id="divWeatherMain" style="padding-left: 30px; padding-top: 50px;">
+                                <div *ngIf="WeatherData.isDay" class="weatherWidgetRow">
+                                    <i class="fa fa-3x fa-sun sun"></i>
+                                </div>
+                                <div *ngIf="!WeatherData.isDay" class="weatherWidgetRow">
+                                    <i class="fa fa-3x fa-moon moon"></i>
+                                </div>
+                                <div class="weatherWidgetRow cloudDiv">
+                                    <i class="fa fa-cloud fa-3x cloud"></i>
+                                </div>
+                                <div class="weatherWidgetRow" style="font-size: 32px;margin-top: 10px;">
+                                    {{WeatherData.temp_celcius}}°</div>
+                                <div class="weatherWidgetRow" style="font-size: 12px;">{{WeatherData.temp_min}}° /
+                                    {{WeatherData.temp_max}}°</div>
+                                <div class="weatherWidgetRow" style="font-size: 12px;">Feels Like:
+                                    {{WeatherData.temp_feels_like}}°</div>
+                                <div class="weatherWidgetRow" style="font-size: 25px;margin-top: 10px;">
+                                    {{WeatherData.name}}</div>
+                                <div class="weatherWidgetRow" style="font-size: 12px;">Humidity:
+                                    {{WeatherData.main.humidity}}%</div>
+
+                            </div>
+                            <div class="ms-3">
+                                <h3 class="mb-0 font-weight-bold"></h3>
+                                <small class="text-muted fs-3"></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </router-outlet>
+
+</div>

@@ -9,6 +9,7 @@ import { ApiService } from './services/api.service';
 import { Student } from './Model/student';
 import { FormControl, FormGroup } from '@angular/forms';
 import { formatDate } from '@angular/common';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-contrats',
   templateUrl: './contrats.component.html',
@@ -24,7 +25,6 @@ export class ContratsComponent implements OnInit {
 
   DateD!: Date;
   DateF!: Date;
-  Date1: Date;
 
 
   constructor(private dialog: MatDialog, private api: ApiService) { }
@@ -34,16 +34,24 @@ export class ContratsComponent implements OnInit {
   }
   openDialog() {
     this.dialog.open(DialogComponent, {
-      width: '500'
+      width: '40%'
+    }).afterClosed().subscribe(val => {
+      if (val === "save") {
+        this.getAllContrats();
+      }
     });
   }
 
 
   editContrat(row: any) {
     this.dialog.open(DialogComponent, {
-      width: '70%',
+      width: '40%',
       data: row
-    })
+    }).afterClosed().subscribe(val => {
+      if (val === "update") {
+        this.getAllContrats();
+      }
+    });
 
   }
 
@@ -55,9 +63,6 @@ export class ContratsComponent implements OnInit {
           this.dataSource = new MatTableDataSource(res);
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;
-        },
-        error: (err) => {
-          alert("error while fetching the Records!!")
         }
       })
   }
@@ -71,7 +76,7 @@ export class ContratsComponent implements OnInit {
     this.api.DelContrat(id)
       .subscribe({
         next: (res) => {
-          alert("Contrat Deleted Successfullly");
+          Swal.fire('Contrat Deletet successfully !! ');
           this.getAllContrats()
 
         }
@@ -114,7 +119,6 @@ export class ContratsComponent implements OnInit {
     const Date1 = formatDate(this.DateD, 'yyyy-MM-dd', 'en-US');
     const Date2 = formatDate(this.DateF, 'yyyy-MM-dd', 'en-US');
 
-    console.log(Date1, Date2)
     this.api.ContratBetweenTwoDate(Date1, Date2).subscribe({
       next: (res) => {
         this.dataSource = new MatTableDataSource(res);

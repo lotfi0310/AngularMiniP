@@ -38,6 +38,7 @@ import { DatePipe } from '@angular/common';
 import { LoginComponent } from './component/login/login.component';
 import { authInterceptorProviders } from './core/services/auth.Interceptor';
 import { ArchivestatsComponent } from './component/contrats/archivestats/archivestats.component';
+import { LoginService } from './core/services/login.service';
 
 
 
@@ -88,7 +89,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
     },
-    authInterceptorProviders, DatePipe
+    authInterceptorProviders, DatePipe,
+    LoginService
+
   ],
   bootstrap: [AppComponent]
 })

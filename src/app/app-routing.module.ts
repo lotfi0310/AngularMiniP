@@ -28,8 +28,9 @@ export const Approutes: Routes = [
       },
 
       { path: 'contrats', loadChildren: () => import('./component/contrats/contrats.module').then(m => m.ContratsModule) },
+      { path: 'etudiants', loadChildren: () => import('./component/etudiants/etudiants.module').then(m => m.EtudiantsModule) },
 
-       { path: 'equipes', loadChildren: () => import('./component/equipes/equipes.module').then(m => m.EquipesModule) },
+      { path: 'equipes', loadChildren: () => import('./component/equipes/equipes.module').then(m => m.EquipesModule) },
 
     ]
   },
