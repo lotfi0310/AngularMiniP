@@ -4,7 +4,12 @@
   border: 1px solid rgba(17, 17, 17, 0.5);
   background-color: #edf0f5;
 }
-
+.table1  {
+  width: 700px;
+  height: 500px;
+  border: 1px solid rgba(63, 63, 63, 0.5);
+  background-color: #39a2a2;
+}
 .button {
   background-color: #4CAF50; /* Green */
   border: none;

@@ -12,7 +12,6 @@ export class UniversityDetailComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log("teeeeeeeeeeeeet",this.univjson?.departments)
   }
 public back(){
     this.rediretToList.emit('U_List');

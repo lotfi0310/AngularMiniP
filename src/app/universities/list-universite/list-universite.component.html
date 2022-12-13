@@ -22,7 +22,9 @@
     <tbody>
 
 
-    <tr *ngFor="let item of listuniversite | filter:searchText | paginate:{itemsPerPage :3, currentPage: p} ">
+    <tr *ngFor="let item of listuniversite| filter:searchText | paginate:{itemsPerPage :3, currentPage: p}
+     ;let i=index"
+        [ngClass]="{'table1': i%2, 'table': i%2}">
 
       <td >{{item.idUniv}}</td>
       <td [ngStyle]="{'font-size.px':13}" [style.color]="'black'" >{{item.nomUniv}}</td>
@@ -41,6 +43,9 @@
 <button (click)="addNew()" class="btn btn-success">add new</button>
 -->
   <button  (click)="addNew()" mat-button color="primary" class="addButton">add new</button>
+
+
+
 
 
 </div>
