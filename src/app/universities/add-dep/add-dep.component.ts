@@ -24,7 +24,7 @@ export class AddDepComponent implements OnInit {
     this.getListOfDepAndUniv();
   }
 
-  public saveDep() {
+  saveDep() {
     if (this.depUniv.iddep && this.depUniv.iduniv) {
       this.universiteService.addDep(this.depUniv.iddep, this.depUniv.iduniv).subscribe(
         data => {
