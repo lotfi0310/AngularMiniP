@@ -14,11 +14,11 @@ const httpOptions = {
 export class DepartmentsService {
 
   public  url_apilist= environment.urlDep ;
-  getallquery='displayalldepartment'
+ getallquery='displayalldepartment'
   constructor(private httpClient :HttpClient) {
     console.log(this.url_apilist);
 
-  }
+   }
 
   getDepartments():Observable<Department[]>{
     return this.httpClient.get<Department[]>(`${this.url_apilist+this.getallquery}`);

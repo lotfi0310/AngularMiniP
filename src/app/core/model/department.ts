@@ -1,4 +1,6 @@
+
+
 export class Department{
-  idDepart : number;
-  nomDepart : String;
+idDepart : number;
+nomDepart : String;
 }
