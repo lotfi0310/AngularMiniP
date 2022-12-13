@@ -24,4 +24,18 @@ thead th:nth-child(1) {
   tbody td {
     text-align: center;
   }
-  
+  .changeBackground {
+    background-color: black;
+  }
+  .red {
+    background-color: red;
+    color:white
+  }
+  .green {
+    background-color: green;
+    color:white; 
+  }
+  .green2 {
+    background-color: green;
+color : white;
+  }

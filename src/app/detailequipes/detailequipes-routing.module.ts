@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ContactComponent } from './contact/contact.component';
 import { DetailequipesComponent } from './detailequipes.component';
 import { FormDetailequipesComponent } from './form-detailequipes/form-detailequipes.component';
 import { ListDetailequipesComponent } from './list-detailequipes/list-detailequipes.component';
@@ -8,7 +9,8 @@ const routes: Routes = [{
   path: '', component: DetailequipesComponent, children: [
     { path: '', component: ListDetailequipesComponent },
     { path: 'form', component: FormDetailequipesComponent },
-    { path: 'edit/:id', component: UpdateDetailsComponent }
+    { path: 'edit/:id', component: UpdateDetailsComponent },
+    { path: 'contact', component: ContactComponent}
   ]
 }
 

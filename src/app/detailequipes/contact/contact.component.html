@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row"> 
+    <div class="col-md-6 offset-md-3"> 
+       <form [formGroup]="registerForm" (submit) ="onSubmit()" > 
+        <div class="form-group" >
+           <label for="nom"> Nom: </label>
+           <input formControlName = "nom" [ngClass]= "{'is-invalid' : submitted && registerForm.controls.nom.errors}"  type=" text" class="form-control">
+           <div *ngIf="submitted && registerForm.controls.nom.errors" class="text-danger">
+            <div *ngIf="submitted && registerForm.controls.nom.errors.required">
+              First Name is required
+            </div>
+            <div *ngIf="submitted && registerForm.controls.nom.errors.minlength">
+               First Name Should be atleast 4 characters
+             </div> 
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="prenom"> Prenom: </label>
+            <input formControlName = "prenom" [ngClass]= "{'is-invalid' : submitted && registerForm.controls.prenom.errors}" type="text" class="form-control">
+            <div *ngIf="submitted && registerForm.controls.prenom.errors" class="text-danger">
+               <div *ngIf="submitted && registerForm.controls.prenom.errors.required">
+                 Last Name is required
+               </div>
+             </div>
+         </div>
+         <div class="form-group">
+            <label for="email"> Email: </label>
+            <input formControlName = "email" [ngClass]= "{'is-invalid' : submitted && registerForm.controls.email.errors}" type="text" class="form-control">
+            <div *ngIf="submitted && registerForm.controls.email.errors" class="text-danger">
+               <div *ngIf="submitted && registerForm.controls.email.errors.required">
+                 Email Address is required
+               </div>
+               <div *ngIf="submitted && registerForm.controls.email.errors.email">
+                 Email Address is not Valid
+               </div>
+             </div>
+         </div>
+         <button class="btn btn-primary"> Envoyer</button>
+       </form> 
+    </div>
+    </div>
+</div>

@@ -1,11 +1,11 @@
 <body>
     <br><br>
-    <div class="search">
-    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="search">
+    <div class="search" [ngClass]="{changeBackground:searchText!= ''}">
+    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="search" >
   </div>
-<div class="container">
+<div class="container" id="content" #content>
 <div class="card">
-    <div class="card-header">
+    <div class="card-header" >
         <h3>Detail Equipes</h3>
     </div>
     <div class="card-body">
@@ -13,13 +13,13 @@
             <thead>
                 <tr>
                     <th (click)="sort('salle')">Salle <i class="fa fa-sort"> </i></th>
-                    <th (click)="sort('thematique')">Thematique <i class="fa fa-sort"> </i>  </th>
+                    <th (click)="sort('thematique')" >Thematique <i class="fa fa-sort"> </i>  </th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let i of listdetailequipes | filter:searchText| paginate:{itemsPerPage :4, currentPage: p} ;let index = index"class="text-center">
-                    <td>{{i.salle}}</td>
-                    <td>{{i.thematique}}</td>
+                <tr  *ngFor="let i of listdetailequipes | filter:searchText| paginate:{itemsPerPage :4, currentPage: p} ;let index = index">
+                    <td [ngStyle]="{color : i.salle > 200 ? 'pink' : 'grey'}"> {{i.salle}}</td>
+                    <td [ngStyle]="{color: i.thematique === 'football' ? 'Green' : 'Red' }">{{i.thematique}}</td>
                     <td>
                         <button (click)="onDelete(i)" class="btn btn-warning">delete</button>
                         <button (click)=" updateDepartment(index)" class="btn btn-warning">edit</button>
@@ -32,6 +32,7 @@
         <pagination-controls (pageChange)="p= $event"> </pagination-controls>
     </div>
 </div>
-<button  class="btn btn-outline-primary" style="margin-right: 2%;" [routerLink]="['/detailequipes/form'] ">new detail equipe</button>
+<button type="button" class="btn btn-outline-success"  style="margin-right: 2%;" [routerLink]="['/detailequipes/form'] ">Ajouter</button>
+<button type="button" class="btn btn-outline-danger" (click)="makePDF()">Telecharger PDF </button>
 </div>
 </body>

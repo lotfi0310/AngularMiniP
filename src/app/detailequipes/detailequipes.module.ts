@@ -27,8 +27,12 @@ import { OrderModule } from 'ngx-order-pipe';
     FormsModule,
     Ng2SearchPipeModule,
     NgxPaginationModule,
+    NgxPaginationModule,
     OrderModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
+  
+    
 
   ]
 })

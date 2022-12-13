@@ -28,6 +28,10 @@ export class FormDetailequipesComponent implements OnInit {
     
      )
      }
+
+     Sucess() {
+      
+     }
        
    }
   
