@@ -4,13 +4,8 @@
   
     <router-outlet >
      
-        <div class="row"  style="padding-left:7% ;">
-            <div class="col-md-6 col-lg-3"  >
-                <div class="card">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <div class="btn btn-lg rounded-circle round round-lg fs-6 d-flex align-items-center justify-content-center bg-light- text-">
-                                 <div  id="divWeatherMain" style="padding-left: 50px;"> 
+       
+        <div  id="divWeatherMain" style="margin-left: 100px; padding-top:55px;"> 
             <div *ngIf="WeatherData.isDay" class="weatherWidgetRow">
                 <i class="fa fa-3x fa-sun sun"></i>  
             </div>   
@@ -27,16 +22,7 @@
             <div class="weatherWidgetRow" style="font-size: 12px;">Humidity: {{WeatherData.main.humidity}}%</div>
         
         </div>
-                            </div>
-                            <div class="ms-3">
-                                <h3 class="mb-0 font-weight-bold"></h3>
-                                <small class="text-muted fs-3"></small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                            
         
        
     
