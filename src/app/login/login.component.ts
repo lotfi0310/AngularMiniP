@@ -64,7 +64,7 @@ export class LoginComponent implements OnInit {
             this.login.setUser(user);
             console.log("Debug user role ", this.login.getUserRole());
 
-            if (this.login.getUserRole() == 'Admin') {
+            if (this.login.getUserRole() == 'ADMIN' || this.login.getUserRole()=='STUDENT' || this.login.getUserRole()=='ENSEIGNANT') {
 
               Swal.fire('Bienvenue', this.login.getUser().username, 'success').then((result) => {
                 if (result.isConfirmed) {

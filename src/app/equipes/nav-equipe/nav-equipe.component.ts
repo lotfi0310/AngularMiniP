@@ -14,6 +14,7 @@ import {
 } from "@angular/animations";
 import {  EventEmitter, Output } from "@angular/core";
 import { EquipesComponent } from '../equipes.component';
+import { LoginService } from 'src/app/core/services/login.service';
 
 @Component({
   selector: 'app-nav-equipe',
@@ -39,28 +40,50 @@ import { EquipesComponent } from '../equipes.component';
 })
 export class NavEquipeComponent implements OnInit {
 
-  constructor(private equipeService: EquipeService,private router:Router) { }
+  constructor(private equipeService: EquipeService,private router:Router,private loginService : LoginService) { }
   searchText: any;
   public listE: Equipe[];
   public all: Equipe[];
   public nomEquipeX: String;
   equipe : Equipe ;
   a : number;
+  role : any;
+  id : any;
 
 
   public enabled: boolean = true;
   public visible: boolean = true;
 
   ngOnInit(): void {
-    this.equipeService.getAllProduct().subscribe(
-      (X:Equipe[])=>{
-        this.listE = X;
-        this.listE = this.all.filter((X) => X.nomEquipe)
+    if(this.loginService.getUserRole()=="ADMIN"){
+      this.equipeService.getAllProduct().subscribe(
+        (X:Equipe[])=>{
+          this.listE = X;
+          this.listE = this.all.filter((X) => X.nomEquipe)
+  
+          console.log("ojn",this.listE)
+  
+        }
+      )
+    }
+    else {
+      this.equipeService.getSessionEquip(this.loginService.getUser()["id"]-1).subscribe(
+        (X:Equipe[])=>{
+          this.listE = X;
+          this.listE = this.all.filter((X) => X.nomEquipe)
+  
+          console.log("ojn",this.listE)
+  
+        }
+      )
+    }
+   
 
-        console.log("ojn",this.listE)
+    this.role = this.loginService.getUserRole();
+    this.id = this.loginService.getUser()["id"]; 
+    console.log("id",this.id)
+    console.log("role",this.role)
 
-      }
-    )
   }
   refresh(){
     this.equipeService.getAllProduct().subscribe(
@@ -77,18 +100,26 @@ export class NavEquipeComponent implements OnInit {
 
   }
   fav(id: number , p : Equipe){
-    console.log("a :"+this.a)
-    if(p.fav==0){
-       this.equipeService.fav(id).subscribe( ()=>{   
-    this.refresh();
-  }
-  ) 
-    }else{
-      this.equipeService.unfav(id).subscribe( ()=>{   
-        this.refresh();
-      }
-      ) 
+    if(this.loginService.getUserRole()=="ADMIN"){
+      console.log("a :"+this.a)
+      if(p.fav==0){
+         this.equipeService.fav(id).subscribe( ()=>{   
+      this.refresh();
     }
+    ) 
+      }else{
+        this.equipeService.unfav(id).subscribe( ()=>{   
+          this.refresh();
+        }
+        ) 
+      }
+    } else{
+
+      this.equipeService.newfav(id,this.loginService.getUser()["id"]).subscribe(
+  
+        )
+    }
+   
   }
   public show() {
     if (this.enabled) this.visible = !this.visible;

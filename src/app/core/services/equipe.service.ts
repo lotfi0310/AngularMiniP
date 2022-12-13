@@ -15,6 +15,8 @@ export class EquipeService {
   public url=environment.urlG+'/EquipeController/'
   public urlStad=environment.urlG+'/StadeController/'
   public urlEtud=environment.url+'DisplayStudents'
+  public urlf=environment.urlG+'/fav'
+
 
 
 
@@ -29,6 +31,12 @@ export class EquipeService {
   public urlunfav=this.url+'unfavorite/' 
   public urlmyfav=this.url+'myfavorites/' 
   public urlaffect=this.url+'assignEquipeEtudiant/' 
+  public urlsessionequi=this.url+'equipesession/' 
+  public urlfavv=this.url+'getequipfavv/' 
+  public myfav=this.urlf+'/favv/' 
+
+
+
 
 
   public urldispStad=this.urlStad+'displayStades/'
@@ -81,5 +89,14 @@ export class EquipeService {
   }
   affect(id:number,id2:number){
     return this.http.put(this.urlaffect+id+'/'+id2,null)
+  }
+  getSessionEquip(id: number){
+    return this.http.get<Equipe[]>(this.urlsessionequi+id)
+  }
+  getfavv(id:number){
+    return this.http.get<Equipe[]>(this.urlfavv+id)
+  }
+  newfav(id:number,id2:number){
+    return this.http.put(this.myfav+id+'/'+id2,null)
   }
 }

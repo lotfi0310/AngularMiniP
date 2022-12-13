@@ -87,14 +87,25 @@ export class FormEquipeComponent implements OnInit {
         this.listSS = X;
       }
     )
+    this.equipeservice.getAllProduct().subscribe(
+      (X:Equipe[])=>{
+        this.listE = X;
+      }
+    )
+    this.equipeservice.getStudEquipe(this.id).subscribe(
+      (X:etudiants[])=>{
+        this.listS = X;
+      }
+    )
   }
 
   afffect(){
 
     this.equipeservice.affect(this.id,this.selectedLevel.idEtudiant).subscribe(
-      ()=>{ this.router.navigate(['/equipes'])}
 
     )
+    this.refresh();
+
     console.log("id etudiant"+this.selectedLevel.idEtudiant)
     console.log("id equipe ",this.id)
 }

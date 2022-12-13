@@ -7,13 +7,13 @@
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" routerLink="/equipes/stat">Stats</a>
+            <a  [hidden] *ngIf="role=='ADMIN'" class="nav-link" routerLink="/equipes/stat">Stats</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="/equipes/favorites">My favorites</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/equipes/stade">New Stade</a>
+            <a  [hidden] *ngIf="role=='ADMIN'" class="nav-link" routerLink="/equipes/stade">New Stade</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="/equipes/listStatds">List stades</a>
@@ -32,11 +32,11 @@
     class="bg-image hover-overlay ripple shadow-1-strong rounded"
     data-mdb-ripple-color="light">
    
-    <div class="container2" style="background-color: rgb(238, 238, 255);">
+    <div [hidden] *ngIf="role=='ADMIN'" class="container2" style="background-color: rgb(238, 238, 255);">
       <br>
-      <h1>Add a new club</h1>
-      <h3>Click here</h3>
-      <a routerLink="/equipes/add"  class="btn btn-outline-dark btn-lg" >New club</a>
+      <h1 [hidden] *ngIf="role=='ADMIN'">Add a new club</h1>
+      <h3 [hidden] *ngIf="role=='ADMIN'">Click here</h3>
+      <a [hidden] *ngIf="role=='ADMIN'" routerLink="/equipes/add"  class="btn btn-outline-dark btn-lg" >New club</a>
       <br><br>
     </div>
   </div>

@@ -10,6 +10,7 @@ import {
   style,
   animate
 } from "@angular/animations";
+import { LoginService } from 'src/app/core/services/login.service';
 @Component({
   selector: 'app-favorite',
   templateUrl: './favorite.component.html',
@@ -36,15 +37,30 @@ export class FavoriteComponent implements OnInit {
   public listE: Equipe[];
   public enabled: boolean = true;
   public visible: boolean = true;
+  id : number;
 
-  constructor(private equipeService : EquipeService) { }
+  constructor(private equipeService : EquipeService , private loginservice: LoginService) {
+    
+   }
 
   ngOnInit(): void {
-    this.equipeService.getAllfav().subscribe(
-      (X:Equipe[])=>{
-        this.listE = X;
-      }
-    )
+    if(this.loginservice.getUserRole()=="ADMIN"){
+      this.equipeService.getAllfav().subscribe(
+        (x:Equipe[])=>{
+          this.listE = x;
+        }
+      )
+
+    }
+else{
+  this.equipeService.getfavv(this.loginservice.getUser()["id"]).subscribe(
+
+    (x:Equipe[])=>{
+      this.listE = x;
+    }
+  )
+}
+   
   }
 
 }
