@@ -1,27 +1,40 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { LoginComponent } from './login/login.component';
+import { Routes, RouterModule } from '@angular/router';
 
-const ROUTES: Routes = [
-  { path: '', loadChildren: () => import('./Etudiant/etudiants/etudiants.module').then(m => m.EtudiantsModule) },
-  { path: 'login', component:LoginComponent },
-  { path: 'etudiants', loadChildren: () => import('./Etudiant/etudiants/etudiants.module').then(m => m.EtudiantsModule) },
-  { path: 'contrats', loadChildren: () => import('./contrats/contrats.module').then(m => m.ContratsModule) },
-  { path: 'departments', loadChildren: () => import('./departments/departments.module').then(m => m.DepartmentsModule) },
-  { path: 'enseignants', loadChildren: () => import('./enseignant/enseignant.module').then(m => m.EnseignantModule) },
-  { path: 'universities', loadChildren: () => import('./universities/universities.module').then(m => m.UniversitiesModule) },
-  { path: 'equipes', loadChildren: () => import('./equipes/equipes.module').then(m => m.EquipesModule) },
-  { path: 'detailequipes', loadChildren: () => import('./detailequipes/detailequipes.module').then(m => m.DetailequipesModule) },
+import { FullComponent } from './layouts/full/full.component';
 
+import { LoginComponent } from './component/login/login.component';
+
+
+
+export const Approutes: Routes = [
+  {
+    path: '',
+    component: FullComponent,
+    children: [
+      { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+      { path: 'login', component: LoginComponent },
+      {
+        path: 'dashboard',
+        loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
+      },
+      {
+        path: 'about',
+        loadChildren: () => import('./about/about.module').then(m => m.AboutModule)
+      },
+      {
+        path: 'component',
+        loadChildren: () => import('./component/component.module').then(m => m.ComponentsModule)
+      },
+
+      { path: 'contrats', loadChildren: () => import('./component/contrats/contrats.module').then(m => m.ContratsModule) },
+
+       { path: 'equipes', loadChildren: () => import('./component/equipes/equipes.module').then(m => m.EquipesModule) },
+
+    ]
+  },
+  {
+    path: '**',
+    redirectTo: '/starter'
+  }
 ];
-
-@NgModule({
-  imports: [
-    CommonModule,
-    RouterModule.forRoot(ROUTES),
-  ],
-  exports: [RouterModule]
-})
-
-export class AppRoutingModule { }

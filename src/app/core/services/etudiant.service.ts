@@ -1,10 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../../src/environments/environment';
 import { Department } from '../model/department';
 import { etudiants } from '../model/etudiants';
-import { DepartmentsService } from './departments.service';
 @Injectable({
   providedIn: 'root'
 })

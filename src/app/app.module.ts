@@ -1,15 +1,29 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { SidebarComponent } from './Shared/sidebar/sidebar.component';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import * as CanvasJSAngularChart from '../assets/canvasjs.angular.component';
-var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
+import {
+  CommonModule, LocationStrategy,
+  PathLocationStrategy
+} from '@angular/common';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { Routes, RouterModule } from '@angular/router';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { FullComponent } from './layouts/full/full.component';
+
+
+import { NavigationComponent } from './shared/header/navigation.component';
+import { SidebarComponent } from './shared/sidebar/sidebar.component';
+
+import { Approutes } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { SpinnerComponent } from './shared/spinner.component';
+
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
+import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
 
 
@@ -19,42 +33,63 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
-import { RouterModule, Routes } from '@angular/router';
-import { ArchivestatsComponent } from './contrats/archivestats/archivestats.component';
-import { LoginComponent } from './login/login.component';
-import { authInterceptorProviders } from './core/services/auth.Interceptor';
+
 import { DatePipe } from '@angular/common';
-const appRoute: Routes = [
-  { path: 'app-archivestats', component: ArchivestatsComponent }
-]
+import { LoginComponent } from './component/login/login.component';
+import { authInterceptorProviders } from './core/services/auth.Interceptor';
+import { ArchivestatsComponent } from './component/contrats/archivestats/archivestats.component';
+
+
+
+
+
+
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true,
+  wheelSpeed: 1,
+  wheelPropagation: true,
+  minScrollbarLength: 20
+};
+
 @NgModule({
   declarations: [
     AppComponent,
+    SpinnerComponent,
+    FullComponent,
+    NavigationComponent,
     SidebarComponent,
-    LoginComponent,
-
-
-
+    LoginComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
-    AppRoutingModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule,
+    NgbModule,
+
+    RouterModule.forRoot(Approutes, { useHash: false, relativeLinkResolution: 'legacy' }),
+    PerfectScrollbarModule,
     RouterModule,
-    RouterModule.forRoot(appRoute),
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
     MatToolbarModule,
     MatSidenavModule,
     MatButtonModule,
     MatIconModule,
-    MatDividerModule,
-    HttpClientModule,
-    FormsModule
+    MatDividerModule
+
   ],
-  providers: [authInterceptorProviders, DatePipe],
+  providers: [
+    {
+      provide: LocationStrategy,
+      useClass: PathLocationStrategy
+    },
+    {
+      provide: PERFECT_SCROLLBAR_CONFIG,
+      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+    },
+    authInterceptorProviders, DatePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
