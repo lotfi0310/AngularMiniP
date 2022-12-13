@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Universite} from "../../core/model/universite";
 import {UniversiteService} from "../../core/services/universite.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {AddDepComponent} from "../add-dep/add-dep.component"
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 @Component({
   selector: 'app-list-universite',
@@ -71,4 +72,6 @@ rediretToList(type:any){
       })
     window.location.reload();
   }
+
+
 }

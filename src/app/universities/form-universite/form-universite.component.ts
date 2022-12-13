@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Universite} from "../../core/model/universite";
 import {UniversiteService} from "../../core/services/universite.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-form-universite',
@@ -25,18 +25,22 @@ url : any;
   }
 
  public addUniversities(){
-   this.Univ=this.universite?.value;
-if(this.Univ.idUniv==null){
-  this.universiteService.addUniversite(this.Univ).subscribe(
-    data =>{
-      this.router.navigate(['universities/']);
-    })
-}else{
-  this.universiteService.updateUniversite(this.Univ).subscribe(
-    data =>{
-      this.router.navigate(['universities/']);
-    })
+    if(this.universite.valid){
+      this.Univ=this.universite?.value;
+      if(this.Univ.idUniv==null){
+        this.universiteService.addUniversite(this.Univ).subscribe(
+          data =>{
+            this.router.navigate(['universities/']);
+          })
+      }else{
+        this.universiteService.updateUniversite(this.Univ).subscribe(
+          data =>{
+            this.router.navigate(['universities/']);
+          })
+    }
+
 }
+
 
  }
 
@@ -72,9 +76,9 @@ if(this.Univ.idUniv==null){
     /*this.Univ.imageUniv=this.imageSrc;*/
     this.universite=new FormGroup({
       idUniv: new FormControl(""),
-      nomUniv: new FormControl("", Validators.minLength(5)),
+      nomUniv: new FormControl("", [Validators.minLength(5)]),
       /*nomUniv: new FormControl("", Validators.pattern(this.unamePattern)),*/
-      imageUniv : new FormControl("",Validators.required),
+      imageUniv : new FormControl("",[Validators.required]),
 
 
 
